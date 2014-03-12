@@ -18,7 +18,9 @@
 		
 		public __construct()
 		{
-			$id
+			$id=0;
+			$titre="Sans titre";
+			$description
 		}
 	}
 ?>
