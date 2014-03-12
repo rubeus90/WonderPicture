@@ -1,5 +1,7 @@
 <?php
-	class Photo extends Entities
+require "Entities.class.php";
+
+class Photo extends Entities
 	{
 		private $id;
 		private $titre;
@@ -23,59 +25,59 @@
 		/***********************************/
 		public function getId()
 		{
-			return $this->$id;
+			return $this->id;
 		}
 		public function getTitre()
 		{
-			return $this->$titre;
+			return $this->titre;
 		}
 		public function getDescription()
 		{
-			return $this->$description;
+			return $this->description;
 		}
 		public function getUrl()
 		{
-			return $this->$url;
+			return $this->url;
 		}
 		public function getUrlMiniature()
 		{
-			return $this->$urlMiniature;
+			return $this->urlMiniature;
 		}
 		public function getExtension()
 		{
-			return $this->$extension;
+			return $this->extension;
 		}
 		public function getPoids()
 		{
-			return $this->$poids;
+			return $this->poids;
 		}
 		public function getLargeur()
 		{
-			return $this->$largeur;
+			return $this->largeur;
 		}
 		public function getHauteur()
 		{
-			return $this->$hauteur;
+			return $this->hauteur;
 		}
-		public function getDateImport()
+		public function getDate_import()
 		{
-			return $this->$date_import;
+			return $this->date_import;
 		}
 		public function getAcces()
 		{
-			return $this->$acces;
+			return $this->acces;
 		}
 		public function getAlbumId()
 		{
-			return $this->$album_id;
+			return $this->album_id;
 		}
 		public function getNote()
 		{
-			return $this->$note;
+			return $this->note;
 		}
 		public function getNombreVotant()
 		{
-			return $this->$nombreVotant;
+			return $this->nombreVotant;
 		}
 		/************************************
 		/			MODIFICATEUR
@@ -83,72 +85,72 @@
 		public function setId($ident)
 		{
 			if(isset($ident) && is_numeric($ident) && $ident>=0 )
-				$id=$ident;
+				$this->id=$ident;
 		}
 		public function setTitre($var)
 		{
 			if(isset($var) && is_string($var))
-				$titre=$var;
+				$this->titre=$var;
 		}
 		public function setDescription($var)
 		{
 			if(isset($var) && is_string($var))
-				$description=$var;
+				$this->description=$var;
 		}
 		public function setUrl($var)
 		{
 			if(isset($var) && is_string($var))
-				$url=$var;
+				$this->url=$var;
 		}
 		public function setUrlMiniature($var)
 		{
 			if(isset($var) && is_string($var))
-				$urlMiniature=$var;
+				$this->urlMiniature=$var;
 		}
 		public function setExtension($var)
 		{
 			if(isset($var) && is_string($var))
-				$extension=$var;
+				$this->extension=$var;
 		}
 		public function setPoids($var)
 		{
 			if(isset($var) && is_numeric($var) && $var>=0 )
-				$poids=$var;
+				$this->poids=$var;
 		}
 		public function setLargeur($var)
 		{
 			if(isset($var) && is_numeric($var) && $var>=0 )
-				$largeur=$var;
+				$this->largeur=$var;
 		}
 		public function setHauteur($var)
 		{
 			if(isset($var) && is_numeric($var) && $var>=0 )
-				$hauteur=$var;
+				$this->hauteur=$var;
 		}
-		public function setDateImport($var)
+		public function setDate_import($var)
 		{
 			if(isset($var) && is_string($var))
-				$date_import=$var;
+				$this->date_import=$var;
 		}
 		public function setAcces($var)
 		{
 			if(isset($var) && is_bool($var) )
-				$acces=$var;
+				$this->acces=$var;
 		}
 		public function setAlbumId($var)
 		{
 			if(isset($var) && is_numeric($var) && $var>=0 )
-				$album_id=$var;
+				$this->album_id=$var;
 		}
 		public function setNote($var)
 		{
 			if(isset($var) && is_numeric($var) && $var>=0 && $var<=10 )
-				$note=$var;
+				$this->note=$var;
 		}
 		public function setNombreVotant($var)
 		{
 			if(isset($var) && is_numeric($var) && $var>=0 )
-				$nombreVotant=$var;
+				$this->nombreVotant=$var;
 		}
 		
 		

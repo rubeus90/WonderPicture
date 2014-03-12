@@ -21,8 +21,11 @@ $photo = new Photo(array(
 
 //Test de quelque fonction dessus
 echo $photo->getId();
+echo '<hr>';
 echo $photo->getDate_import();
+echo '<hr>';
 echo $photo->getExtension();
+echo '<hr>';
 echo $photo->getLargeur();
 
 ?>
