@@ -6,35 +6,36 @@ class Parametres extends Entities{
 			$ordreAlbum,
 			$nombreAffichage;
 
-	public getResolutionMiniature(){ return $resolutionMiniature;}
-	public getQualiteMiniature(){ return $qualiteMiniature;}
-	public getOrdrePhoto(){ return $ordrePhoto;}
-	public getOrdreAlbum(){ return $ordreAlbum;}
-	public getNombreAffichage(){ return $nomAffichage;}
+	public function getResolutionMiniature(){ return $resolutionMiniature;}
+	public function getQualiteMiniature(){ return $qualiteMiniature;}
+	public function getOrdrePhoto(){ return $ordrePhoto;}
+	public function getOrdreAlbum(){ return $ordreAlbum;}
+	public function getNombreAffichage(){ return $nomAffichage;}
 
-	public setResolutionMiniature($cote){
-		if(is_numeric($cote) and !empty($cote)){
+	public function setResolutionMiniature($cote){
+		if(is_numeric($cote) and !empty($cote) and $cote>0){
 			$this->$resolutionMiniature = $cote;
 		}
 	}
-	public setQualiteMiniature($qualite){
-		if(is_numeric($qualite) and !empty($qualite)){
+	public function setQualiteMiniature($qualite){
+		if(is_numeric($qualite) and !empty($qualite) and $qualite>0){
 			$this->$qualiteMiniature = $qualite;
 		}
 	}
-	public setOrdrePhoto($ordre){
+	public function setOrdrePhoto($ordre){
 		if(is_string($ordre) and !empty($ordre)){
 			$this->$ordrePhoto = $ordre;
 		}
 	}
-	public setOrdreAlbum($ordre){
+	public function setOrdreAlbum($ordre){
 		if(is_string($ordre) and !empty($ordre)){
 			$this->$ordreAlbum = $ordre;
 		}
 	}
-	public setNombreAffichage($nombre){
+	public function setNombreAffichage($nombre){
 		if(is_numeric($nombre) and !empty($nombre)){
 			$this->$nombreAffichage = $nombre;
 		}
 	}
 }
+?>
