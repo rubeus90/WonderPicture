@@ -1,4 +1,5 @@
 <?php
+require 'Entities.class.php'
 class Parametres extends Entities{
 	private $id,
 			$resolutionMiniature,
