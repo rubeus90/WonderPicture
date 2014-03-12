@@ -9,7 +9,7 @@ class Parametres extends Entities{
 			$ordre_album,
 			$nombreAffichage;
 
-	public function getID(){ return $this->id;}
+	public function getId(){ return $this->id;}
 	public function getResolutionMiniature(){ return $this->resolutionMiniature;}
 	public function getQualiteMiniature(){ return $this->qualiteMiniature;}
 	public function getOrdre_photo(){ return $this->ordre_photo;}
