@@ -5,8 +5,6 @@ require "Entities.class.php";
 
 class Photo extends Entities
 	{
-		
-		
 		private $id;
 		private $titre;
 		private $description;
@@ -23,7 +21,7 @@ class Photo extends Entities
 		private $nombreVotant;
 		
 
-		public function __construct($pId,$pTitre,$pDesc,$pUrl,$pUrlMini,$pExt,$pPoids,$pLarg,$pLong,$pDate,$pAcces,$pAlbum,$pNote,$pNbVotant)
+		/*public function __construct($pId,$pTitre,$pDesc,$pUrl,$pUrlMini,$pExt,$pPoids,$pLarg,$pLong,$pDate,$pAcces,$pAlbum,$pNote,$pNbVotant)
 		{
 			$this->id=$pId;
 			$this->titre=$pTitre;
@@ -39,7 +37,7 @@ class Photo extends Entities
 			$this->album_id=$pAlbum;
 			$this->note=$pNote;
 			$this->nombreVotant=$pNbVotant;
-		}
+		}*/
 		
 		/************************************
 		/			ACCESSEUR
@@ -148,7 +146,7 @@ class Photo extends Entities
 			if(isset($var) && is_numeric($var) && $var>=0 )
 				$this->hauteur=$var;
 		}
-		public function setDate_import($var)
+		public function setDateImport($var)
 		{
 			if(isset($var) && is_string($var))
 				$this->date_import=$var;

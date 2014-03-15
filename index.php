@@ -9,7 +9,7 @@ testPhoto();
 //testParametres();
 
 //MANAGER
-//testPhotoManager();
+testPhotoManager();
 //testAlbumManager()
 testParametresManager();
 
@@ -30,9 +30,9 @@ function testPhoto(){
 			'poids' => 14,
 			'largeur' => 14,
 			'hauteur' => 14,
-			'date_import' => 'TODAY',
-			'acces' => 0,
-			'album_id' => 1,
+			'dateImport' => 'TODAY',
+			'acces' => False,
+			'albumId' => 1,
 			'note' => 2,
 			'nombreVotant'=> 2
 			);
@@ -132,7 +132,9 @@ function Connexion(){
 }
 
 function testPhotoManager(){
+	echo "<hr>Test de l'objet PhotoManager <hr>";
 	$pdo = Connexion();
+	$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 	$PhotoManager = new PhotoManager($pdo);
 	$PhotoManager->ajouter(new Photo(array(
 			'id'=>'0',
@@ -144,9 +146,9 @@ function testPhotoManager(){
 			'poids' => 14,
 			'largeur' => 14,
 			'hauteur' => 14,
-			'date_import' => 'TODAY',
-			'acces' => 0,
-			'album_id' => 1,
+			'dateImport' => 'TODAY',
+			'acces' => False,
+			'albumId' => 1,
 			'note' => 2,
 			'nombreVotant'=> 2
 			)));

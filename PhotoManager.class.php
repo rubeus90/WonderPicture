@@ -15,6 +15,11 @@
 				);	
 			try{	
 				
+				if($photo->getAcces())
+					$acces = 1;
+				else
+					$acces = 0;
+			
 			$d = array(
 				':TITRE'=>$photo->getTitre(),
 				':DESCRIPTION'=>$photo->getDescription(),
@@ -25,7 +30,7 @@
 				':LARGEUR'=>$photo->getLargeur(),
 				':HAUTEUR'=>$photo->getHauteur(),
 				':DATE'=>$photo->getDateImport(),
-				':ACCES'=>$photo->getAcces(),
+				':ACCES'=>$acces,
 				':ALBUMID'=>$photo->getAlbumId(),
 				':NOTE'=>$photo->getNote(),
 				':NBVOTANT'=>$photo->getNombreVotant()
