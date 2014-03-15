@@ -1,5 +1,5 @@
 <?php
-class AlbumManager{
+class AlbumManager extends Manager{
 	private $_db
 
 	public function __construct($db){
