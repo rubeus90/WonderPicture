@@ -152,6 +152,23 @@ function testPhotoManager(){
 			'note' => 2,
 			'nombreVotant'=> 2
 			)));
+	$photo = $PhotoManager->obtenir(1);
+	echo $photo->getId();echo "<br/>";
+	echo $photo->getTitre();echo "<br/>";
+	echo $photo->getDescription();echo "<br/>";
+	echo $photo->getUrl();echo "<br/>";
+	echo $photo->getUrlMiniature();echo "<br/>";
+	echo $photo->getExtension();echo "<br/>";
+	echo $photo->getPoids();echo "<br/>";
+	echo $photo->getLargeur();echo "<br/>";
+	echo $photo->getHauteur();echo "<br/>";
+	echo $photo->getDateImport();echo "<br/>";
+	echo $photo->getAcces();echo "<br/>";
+	echo $photo->getAlbumId();echo "<br/>";
+	echo $photo->getNote();echo "<br/>";
+	echo $photo->getNombreVotant();echo "<br/>";
+	$photo = $PhotoManager->supprimer(2);
+	
 }
 
 function testAlbumManager(){

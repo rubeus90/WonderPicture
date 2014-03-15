@@ -55,22 +55,28 @@
 		  $query = $this->_db->query('SELECT * FROM photo WHERE id='.$photo);
 		  $donnees= $query->fetch(\PDO::FETCH_OBJ);
 		  
-		  $objetPhoto = new Photo(
-					$donnees->id,
-					$donnees->titre,
-					$donnees->description,
-					$donnees->url,
-					$donnees->urlMiniature,
-					$donnees->extension,
-					$donnees->poids,
-					$donnees->largeur,
-					$donnees->hauteur,
-					$donnees->dateImport,
-					$donnees->acces,
-					$donnees->albumId,
-					$donnees->note,
-					$donnees->nombreVotant);
-					
+		  if($donnees->acces == 0)
+				$acces=0;
+		  else
+				$acces=1;
+		  
+		  $objetPhoto = new Photo(array(
+			'id'=>$donnees->id,
+			'titre' => $donnees->titre,
+			'description' => $donnees->description,
+			'url' => $donnees->url,
+			'urlMiniature' => $donnees->urlMiniature,
+			'extension' => $donnees->extension,
+			'poids' => $donnees->poids,
+			'largeur' => $donnees->largeur,
+			'hauteur' => $donnees->hauteur,
+			'dateImport' => $donnees->dateImport,
+			'acces' => $acces,
+			'albumId' => $donnees->albumId,
+			'note' => $donnees->note,
+			'nombreVotant'=> $donnees->nombreVotant
+			));
+				
 		  return $objetPhoto;
 					
 		}
