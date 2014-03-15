@@ -163,7 +163,7 @@ function testPhotoManager(){
 	echo $photo->getLargeur();echo "<br/>";
 	echo $photo->getHauteur();echo "<br/>";
 	echo $photo->getDateImport();echo "<br/>";
-	echo $photo->getAcces();echo "<br/>";
+	if($photo->getAcces()) echo "True"; else echo "False"; echo "<br/>";
 	echo $photo->getAlbumId();echo "<br/>";
 	echo $photo->getNote();echo "<br/>";
 	echo $photo->getNombreVotant();echo "<br/>";

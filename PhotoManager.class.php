@@ -56,9 +56,9 @@
 		  $donnees= $query->fetch(\PDO::FETCH_OBJ);
 		  
 		  if($donnees->acces == 0)
-				$acces=0;
+				$acces=False;
 		  else
-				$acces=1;
+				$acces=True;
 		  
 		  $objetPhoto = new Photo(array(
 			'id'=>$donnees->id,
@@ -76,7 +76,7 @@
 			'note' => $donnees->note,
 			'nombreVotant'=> $donnees->nombreVotant
 			));
-				
+			
 		  return $objetPhoto;
 					
 		}
