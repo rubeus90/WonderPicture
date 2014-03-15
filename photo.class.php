@@ -1,6 +1,12 @@
 <?php
+
+require "Entities.class.php";
+
+
 class Photo extends Entities
 	{
+		
+		
 		private $id;
 		private $titre;
 		private $description;
