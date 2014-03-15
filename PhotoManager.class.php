@@ -7,46 +7,47 @@
 		public function ajouter($photo)
 		{
 			$requetePrepa = $this->_db->prepare(
-				'INSERT INTO Photo SET
-					titre=:TITRE,
-					description=:DESCRIPTION,
-					url=:URL,
-					urlMiniature=:URLMINIATURE,
-					extension=:EXTENSION,
-					poids=:POIDS,
-					largeur=:LARGEUR,
-					hauteur=:HAUTEUR,
-					date_import=:DATE,
-					acces=:ACCES,
-					album_id:=ALBUMID,
-					note=:NOTE,
-					nombreVotant=:NBVOTANT'
+				'INSERT 
+				INTO 
+				photo(titre,description,url,urlMiniature,extension,poids,largeur,hauteur,dateImport,acces,albumId,note,nombreVotant) 
+				VALUE
+				(:TITRE,:DESCRIPTION,:URL,:URLMINIATURE,:EXTENSION,:POIDS,:LARGEUR,:HAUTEUR,:DATE,:ACCES,:ALBUMID,:NOTE,:NBVOTANT)'
 				);	
+			try{	
 				
-			$requetePrepa->bindValue(':TITRE',$photo->getTitre());
-			$requetePrepa->bindValue(':DESCRIPTION',$photo->getDescription());
-			$requetePrepa->bindValue(':URL',$photo->getUrlMiniature());
-			$requetePrepa->bindValue(':EXTENSION',$photo->getExtension());
-			$requetePrepa->bindValue(':POIDS',$photo->getPoids());
-			$requetePrepa->bindValue(':LARGEUR',$photo->getLargeur());
-			$requetePrepa->bindValue(':HAUTEUR',$photo->getHauteur());
-			$requetePrepa->bindValue(':DATE',$photo->getDateImport());
-			$requetePrepa->bindValue(':ACCES',$photo->getAcces());
-			$requetePrepa->bindValue(':ALBUMID',$photo->getAlbumId());
-			$requetePrepa->bindValue(':NOTE',$photo->getNote());
-			$requetePrepa->bindValue(':NBVOTANT',$photo->getNombreVotant());
+			$d = array(
+				':TITRE'=>$photo->getTitre(),
+				':DESCRIPTION'=>$photo->getDescription(),
+				':URL'=>$photo->getUrl(),
+				':URLMINIATURE'=>$photo->getUrlMiniature(),
+				':EXTENSION'=>$photo->getExtension(),
+				':POIDS'=>$photo->getPoids(),
+				':LARGEUR'=>$photo->getLargeur(),
+				':HAUTEUR'=>$photo->getHauteur(),
+				':DATE'=>$photo->getDateImport(),
+				':ACCES'=>$photo->getAcces(),
+				':ALBUMID'=>$photo->getAlbumId(),
+				':NOTE'=>$photo->getNote(),
+				':NBVOTANT'=>$photo->getNombreVotant()
+			);
 			
-			$requetePrepa->execute();
+			$requetePrepa->execute($d);
+			
+			}
+			catch (exception $e)
+			{
+				echo 'erreur de requète : ', $e->getMessage();
+			}
 		}
 		
 		public function supprimer($photo)
 		{	
-		  $query = $this->$bdd->exec('DELETE FROM parametres WHERE id='.$photo);
+		  $query = $this->_db->exec('DELETE FROM photo WHERE id='.$photo);
 		}
 		
 		public function obtenir($photo)
 		{
-		  $query = $this->$bdd->exec('SELECT FROM parametres WHERE id='.$photo);
+		  $query = $this->_db->query('SELECT * FROM photo WHERE id='.$photo);
 		  $donnees= $query->fetch(\PDO::FETCH_OBJ);
 		  
 		  $objetPhoto = new Photo(
@@ -64,6 +65,8 @@
 					$donnees->albumId,
 					$donnees->note,
 					$donnees->nombreVotant);
+					
+		  return $objetPhoto;
 					
 		}
 	}

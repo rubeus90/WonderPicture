@@ -16,7 +16,8 @@ class Photo extends Entities
 		private $note;
 		private $nombreVotant;
 		
-		/*public __construct($pId,$pTitre,$pDesc,$pUrl,$pUrlMini,$pExt,$pPoids,$pLarg,$pLong,$pDate,$pAcces,$pAlbum,$pNote,$pNbVotant)
+
+		public function __construct($pId,$pTitre,$pDesc,$pUrl,$pUrlMini,$pExt,$pPoids,$pLarg,$pLong,$pDate,$pAcces,$pAlbum,$pNote,$pNbVotant)
 		{
 			$this->id=$pId;
 			$this->titre=$pTitre;
@@ -26,13 +27,13 @@ class Photo extends Entities
 			$this->extension=$pExt;
 			$this->poids=$pPoids;
 			$this->largeur=$pLarg;
-			$this->hauteur=$Long;
+			$this->hauteur=$pLong;
 			$this->date_import=$pDate;
 			$this->acces=$pAcces;
 			$this->album_id=$pAlbum;
 			$this->note=$pNote;
 			$this->nombreVotant=$pNbVotant;
-		}*/
+		}
 		
 		/************************************
 		/			ACCESSEUR
