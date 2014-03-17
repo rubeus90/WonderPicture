@@ -1,6 +1,6 @@
 <?php
 
-require "Entities.class.php";
+//require "autoload.php";
 
 
 class Photo extends Entities
