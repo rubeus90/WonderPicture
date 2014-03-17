@@ -7,11 +7,13 @@ require "autoload.php";
 testPhoto();
 //testAlbum();
 //testParametres();
+testAdmin();
 
 //MANAGER
 testPhotoManager();
 //testAlbumManager()
 testParametresManager();
+testAdminManager();
 
 /***********************************
 *
@@ -43,6 +45,32 @@ function testPhoto(){
 		echo "Appel de la methode $method. Resultat : <br />";
 		if(method_exists($photo, $method)){
 			$result = $photo->$method();
+			if($result == NULL){
+				echo "Resultat NULL, probleme dans le Mutateur <br /><br />";
+			}else{
+				echo "$key = $result <br /><br />";
+			}
+		}	
+		else{
+			echo "La methode $method n'existe pas. Surement un probleme de nom <br /><br />";
+		}
+	}
+}
+
+function testAdmin(){
+	echo "<hr>Test de l'objet Admin <hr>";
+	$donnee = array(
+			'identifiant'=>"Thibault",
+			'mdp' => "moi",
+			'mail' => "mathieuNgocky.thibaultQuentin@edu.esiee.fr"
+			);
+	$admin = new Admin($donnee);
+
+	foreach($donnee as $key => $param){
+		$method = 'get'.ucfirst($key);
+		echo "Appel de la methode $method. Resultat : <br />";
+		if(method_exists($admin, $method)){
+			$result = $admin->$method();
 			if($result == NULL){
 				echo "Resultat NULL, probleme dans le Mutateur <br /><br />";
 			}else{
@@ -152,21 +180,41 @@ function testPhotoManager(){
 			'note' => 2,
 			'nombreVotant'=> 2
 			)));
-	$photo = $PhotoManager->obtenir(1);
-	echo $photo->getId();echo "<br/>";
-	echo $photo->getTitre();echo "<br/>";
-	echo $photo->getDescription();echo "<br/>";
-	echo $photo->getUrl();echo "<br/>";
-	echo $photo->getUrlMiniature();echo "<br/>";
-	echo $photo->getExtension();echo "<br/>";
-	echo $photo->getPoids();echo "<br/>";
-	echo $photo->getLargeur();echo "<br/>";
-	echo $photo->getHauteur();echo "<br/>";
-	echo $photo->getDateImport();echo "<br/>";
-	if($photo->getAcces()) echo "True"; else echo "False"; echo "<br/>";
-	echo $photo->getAlbumId();echo "<br/>";
-	echo $photo->getNote();echo "<br/>";
-	echo $photo->getNombreVotant();echo "<br/>";
+	echo "Appel de la methode obtenir. Resultat :<br/>";
+	$photo = $PhotoManager->obtenir(20);
+	if($photo!=NULL){
+		echo "Recupération de l'id : ";
+		echo $photo->getId();echo "<br/>";
+		echo "Recupération du titre : ";
+		echo $photo->getTitre();echo "<br/>";
+		echo "Recupération de la desciption : ";
+		echo $photo->getDescription();echo "<br/>";
+		echo "Recupération de l'url : ";
+		echo $photo->getUrl();echo "<br/>";
+		echo "Recupération de l'url de la miniature : ";
+		echo $photo->getUrlMiniature();echo "<br/>";
+		echo "Recupération de l'extension : ";
+		echo $photo->getExtension();echo "<br/>";
+		echo "Recupération du poids : ";
+		echo $photo->getPoids();echo "<br/>";
+		echo "Recupération de la largeur : ";
+		echo $photo->getLargeur();echo "<br/>";
+		echo "Recupération de la hauteur : ";
+		echo $photo->getHauteur();echo "<br/>";
+		echo "Recupération de la date d'import : ";
+		echo $photo->getDateImport();echo "<br/>";
+		echo "Recupération de l'acces : ";
+		if($photo->getAcces()) echo "True"; else echo "False"; echo "<br/>";
+		echo "Recupération de l'album : ";
+		echo $photo->getAlbumId();echo "<br/>";
+		echo "Recupération de la note : ";
+		echo $photo->getNote();echo "<br/>";
+		echo "Recupération du nombre de votant : ";
+		echo $photo->getNombreVotant();echo "<br/>";
+		
+	}
+	else
+		echo "Pas de photo avec l'id 1<br/>";
 
 	$PhotoManager->supprimer(2);
 	$PhotoManager->viderAlbum(1);
@@ -205,6 +253,36 @@ function testParametresManager(){
 			'ordre_album'=> 'WTF',
 			'nombreAffichage' => 6
 			)));
+}
+
+function testAdminManager(){
+    echo "<hr>Test de l'objet AdminManager <hr>";
+	$pdo = Connexion();
+	$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+	$AdminManager = new AdminManager($pdo);
+	
+	$AdminManager->supprimer("Thibault");
+	
+	$donnee = array(
+			'identifiant'=>"Thibault",
+			'mdp' => "moi",
+			'mail' => "mathieuNgocky.thibaultQuentin@edu.esiee.fr"
+			);
+	$admin = new Admin($donnee);
+	$AdminManager->ajouter($admin);
+	
+	echo "Appel de la methode obtenir. Resultat :<br/>";
+	$ad = $AdminManager->obtenir("Thibault");
+	if($ad!=NULL){
+		echo "Recupération de l'Id : ";
+		echo $ad->getIdentifiant();echo "<br/>";
+		echo "Recupération de l'Id : ";
+		echo $ad->getMdp();echo "<br/>";
+		echo "Recupération de l'Id : ";
+		echo $ad->getMail();echo "<br/>";
+	}
+	else
+		echo "Pas de photo avec l'id Thibault<br/>";
 }
 
 ?>

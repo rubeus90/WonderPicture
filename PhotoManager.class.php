@@ -53,31 +53,33 @@
 		public function obtenir($photo)
 		{
 		  $query = $this->_db->query('SELECT * FROM photo WHERE id='.$photo);
-		  $donnees= $query->fetch(\PDO::FETCH_OBJ);
+		  $objetPhoto =NULL;
 		  
-		  if($donnees->acces == 0)
-				$acces=False;
-		  else
-				$acces=True;
-		  
-		  $objetPhoto = new Photo(array(
-			'id'=>$donnees->id,
-			'titre' => $donnees->titre,
-			'description' => $donnees->description,
-			'url' => $donnees->url,
-			'urlMiniature' => $donnees->urlMiniature,
-			'extension' => $donnees->extension,
-			'poids' => $donnees->poids,
-			'largeur' => $donnees->largeur,
-			'hauteur' => $donnees->hauteur,
-			'dateImport' => $donnees->dateImport,
-			'acces' => $acces,
-			'albumId' => $donnees->albumId,
-			'note' => $donnees->note,
-			'nombreVotant'=> $donnees->nombreVotant
-			));
-			
-		  return $objetPhoto;
+		  if($donnees= $query->fetch(\PDO::FETCH_OBJ))
+		  {
+			  if($donnees->acces == 0)
+					$acces=False;
+			  else
+					$acces=True;
+			  
+			  $objetPhoto = new Photo(array(
+				'id'=>$donnees->id,
+				'titre' => $donnees->titre,
+				'description' => $donnees->description,
+				'url' => $donnees->url,
+				'urlMiniature' => $donnees->urlMiniature,
+				'extension' => $donnees->extension,
+				'poids' => $donnees->poids,
+				'largeur' => $donnees->largeur,
+				'hauteur' => $donnees->hauteur,
+				'dateImport' => $donnees->dateImport,
+				'acces' => $acces,
+				'albumId' => $donnees->albumId,
+				'note' => $donnees->note,
+				'nombreVotant'=> $donnees->nombreVotant
+				));
+			}	
+			return $objetPhoto;
 					
 		}
 		
