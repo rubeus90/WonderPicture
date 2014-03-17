@@ -86,7 +86,7 @@
 			$query = $this->_db->query('SELECT * FROM photo WHERE albumId='.$album);
 			 while( $donnees= $query->fetch(\PDO::FETCH_OBJ) ) 
 			 {
-				supprimer($donnees->id);
+				$this->supprimer($donnees->id);
 			 }
 		}
 	}

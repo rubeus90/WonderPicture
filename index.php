@@ -148,7 +148,7 @@ function testPhotoManager(){
 			'hauteur' => 14,
 			'dateImport' => 'TODAY',
 			'acces' => False,
-			'albumId' => 1,
+			'albumId' => 3,
 			'note' => 2,
 			'nombreVotant'=> 2
 			)));
@@ -167,7 +167,9 @@ function testPhotoManager(){
 	echo $photo->getAlbumId();echo "<br/>";
 	echo $photo->getNote();echo "<br/>";
 	echo $photo->getNombreVotant();echo "<br/>";
-	$photo = $PhotoManager->supprimer(2);
+
+	$PhotoManager->supprimer(2);
+	$PhotoManager->viderAlbum(1);
 	
 }
 
