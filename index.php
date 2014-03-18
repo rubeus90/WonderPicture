@@ -219,6 +219,16 @@ function testPhotoManager(){
 	$PhotoManager->supprimer(2);
 	$PhotoManager->viderAlbum(1);
 	
+	echo "<br/>Appel de la methode obtenir. Resultat :<br/>";
+	$listePhoto = $PhotoManager->obtenirTous(3);
+	$numero = 1;
+	foreach($listePhoto as $p)
+	{
+		echo "Recuperation de la photo numero ".$numero." ID = ";
+		echo $p->getId();echo "<br/>";
+		$numero++;
+	}
+	
 }
 
 function testAlbumManager(){
