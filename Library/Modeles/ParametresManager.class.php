@@ -20,7 +20,7 @@ class ParametresManager extends \Library\Manager{
 	}
 
 	public function get($id){
-		$query = $this->_db->exec('SELECT resolutionMiniature, qualiteMiniature, ordre_photo, ordre_album, nombreAffichage WHERE id='.$id);
+		$query = $this->_db->exec('SELECT * FROM parametres WHERE id='.$id);
 		$donnees= $query->fetch(PDO::FETCH_ASSOC);	
 
 		return new Parametres($donnees);

@@ -6,13 +6,7 @@ namespace Library\Modeles;
 			
 		public function ajouter($admin)
 		{
-			$requetePrepa = $this->_db->prepare(
-				'INSERT 
-				INTO 
-				admin(identifiant,mdp,mail) 
-				VALUE
-				(:ID,:MDP,:MAIL)'
-				);	
+			$requetePrepa = $this->_db->prepare('INSERT INTO admin(id,mdp,mail) VALUES (:ID,:MDP,:MAIL)');	
 			try{	
 			
 			$d = array(
@@ -26,23 +20,23 @@ namespace Library\Modeles;
 			}
 			catch (exception $e)
 			{
-				echo 'erreur de requète : ', $e->getMessage();
+				echo 'erreur de requête : ', $e->getMessage();
 			}
 		}
 		
 		public function supprimer($admin)
 		{	
-		  $query = $this->_db->exec('DELETE FROM admin WHERE identifiant=\''.$admin.'\'');
+		  $query = $this->_db->exec('DELETE FROM admin WHERE id=\''.$admin.'\'');
 		}
 		
 		public function obtenir($admin)
 		{
-		  $query = $this->_db->query('SELECT * FROM admin WHERE identifiant=\''.$admin.'\'');
+		  $query = $this->_db->query('SELECT * FROM admin WHERE id=\''.$admin.'\'');
 		  if($query==NULL) echo "PROBLEME";
 		  $donnees= $query->fetch(\PDO::FETCH_OBJ);
 		  
 		  $objetAdmin = new Admin(array(
-			'identifiant'=>$donnees->identifiant,
+			'id'=>$donnees->identifiant,
 			'mdp' => $donnees->mdp,
 			'mail' => $donnees->mail
 			));

@@ -35,7 +35,7 @@ class Connexion{
 				`titre` VARCHAR(45) NOT NULL,
 				`description` VARCHAR(255) NULL,
 				`acces` TINYINT(1) NOT NULL DEFAULT 1,
-				`date_creation` DATETIME NOT NULL,
+				`dateCreation` DATETIME NOT NULL,
 				`urlMiniature` VARCHAR(40) NOT NULL,
 				PRIMARY KEY (`id`)
 			) ENGINE=InnoDB DEFAULT CHARSET=utf8; ";
@@ -43,7 +43,7 @@ class Connexion{
 	    	return false;
 	    }
 
-		$query = "CREATE TABLE IF NOT EXISTS `Photo` (
+		$query = "CREATE TABLE IF NOT EXISTS `photo` (
 				`id` INT(11) NOT NULL AUTO_INCREMENT,
 				`titre` varchar(45) NOT NULL,
 				`description` varchar(255) NULL,
@@ -53,14 +53,14 @@ class Connexion{
 				`poids` INT NOT NULL,
 				`largeur` SMALLINT NOT NULL,
 				`hauteur` SMALLINT NOT NULL,
-				`date_import` DATETIME NOT NULL,
+				`dateImport` DATETIME NOT NULL,
 				`acces` TINYINT(1) NOT NULL DEFAULT 1,
-				`album_id` INT NOT NULL,
+				`albumId` INT NOT NULL,
 				`note` TINYINT(4) NOT NULL DEFAULT 5,
 				`nombreVotant` INT NOT NULL DEFAULT 0,
 				PRIMARY KEY (`id`),
 				CONSTRAINT fk_album_id 
-					FOREIGN KEY (`album_id`)
+					FOREIGN KEY (`albumId`)
 					REFERENCES album(id) 
 					ON DELETE CASCADE
 					ON UPDATE CASCADE
@@ -70,7 +70,7 @@ class Connexion{
 			return false;
 		}
 
-		$query = "CREATE TABLE IF NOT EXISTS `Admin` (
+		$query = "CREATE TABLE IF NOT EXISTS `admin` (
 				`id` VARCHAR(50) NOT NULL,
 				`mdp` VARCHAR(30) NOT NULL,
 				`mail` VARCHAR(255) NULL,
@@ -80,7 +80,7 @@ class Connexion{
 			return false;
 		}
 
-		$query = "CREATE TABLE IF NOT EXISTS `Parametres` (
+		$query = "CREATE TABLE IF NOT EXISTS `parametres` (
 				`id` INT NOT NULL AUTO_INCREMENT,
 				`resolutionMiniature` SMALLINT NOT NULL DEFAULT 400,
 				`qualiteMiniature` TINYINT(4) NOT NULL DEFAULT 75,

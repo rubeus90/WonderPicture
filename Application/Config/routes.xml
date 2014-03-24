@@ -5,4 +5,5 @@
 
 	<!-- ROUTE FRONTEND -->
 	<route url="/" module="Index"/>
+	<route url="/(\w+)" module="Album"/>
 </routes>
