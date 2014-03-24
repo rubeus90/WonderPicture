@@ -2,7 +2,7 @@
 
 namespace Library\Entites;
 
-	class Album extends Entities{
+	class Album extends \Library\Entities{
 		private $_id;
 		private $_titre;
 		private $_description;

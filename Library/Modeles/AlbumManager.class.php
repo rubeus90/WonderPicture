@@ -1,9 +1,9 @@
 <?php
 namespace Library\Modeles;
 
-require "Manager.class.php";
+use \Library\Entites\Album
 
-class AlbumManager extends Manager{
+class AlbumManager extends \Library\Manager{
 
 	public function ajouter(Album $album){
 		try{

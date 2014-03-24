@@ -1,7 +1,7 @@
 <?php
 
 namespace Library\Modeles;
-class ParametresManager extends Manager{
+class ParametresManager extends \Library\Manager{
 
 	public function ajouter(Parametres $param){
 		$query = $this->_db->prepare('INSERT INTO parametres SET resolutionMiniature=:resolutionMiniature, qualiteMiniature=:qualiteMiniature, ordre_photo=:ordre_photo, ordre_album=:ordre_album, nombreAffichage=:nombreAffichage');

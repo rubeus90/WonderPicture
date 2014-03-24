@@ -1,9 +1,9 @@
 <?php
 namespace Library\Modeles;
 
-	require "Manager.class.php";
+	use \Library\Entites\Photo;
 
-	class PhotoManager extends Manager
+	class PhotoManager extends \Library\Manager
 	{
 			
 		public function ajouter($photo)

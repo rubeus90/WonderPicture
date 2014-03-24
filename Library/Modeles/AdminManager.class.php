@@ -1,7 +1,7 @@
 <?php
 namespace Library\Modeles;
 
-	class AdminManager extends Manager
+	class AdminManager extends \Library\Manager
 	{
 			
 		public function ajouter($admin)

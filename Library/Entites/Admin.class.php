@@ -2,7 +2,7 @@
 
 namespace Library\Entites;
 
-class Admin extends Entities
+class Admin extends \Library\Entities
 	{
 		private $id;
 		private $mdp;

@@ -2,7 +2,7 @@
 
 namespace Library\Entites;
 
-class Photo extends Entities
+class Photo extends \Library\Entities
 	{
 		private $id;
 		private $titre;

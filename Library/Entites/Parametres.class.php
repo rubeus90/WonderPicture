@@ -1,7 +1,7 @@
 <?php
 namespace Library\Entites;
 
-class Parametres extends Entities{
+class Parametres extends \Library\Entities{
 	private $id,
 			$resolutionMiniature,
 			$qualiteMiniature,
