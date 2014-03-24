@@ -16,9 +16,9 @@ class Connexion{
 		$this->_pass = $pass;
 
 		$this->dbConnect();
-		if(!$this->createDB()){
+		/*if(!$this->createDB()){
 			throw new \RuntimeException('Erreur de creation des tables');
-		}
+		}*/
 	}
 
 	private function dbConnect(){
