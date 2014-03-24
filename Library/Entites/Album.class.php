@@ -1,4 +1,7 @@
 <?php
+
+namespace Library\Entites;
+
 	class Album extends Entities{
 		private $_id;
 		private $_titre;

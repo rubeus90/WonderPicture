@@ -1,5 +1,5 @@
 <?php
-	//require "Manager.class.php";
+namespace Library\Modeles;
 
 	class AdminManager extends Manager
 	{

@@ -1,4 +1,6 @@
 <?php
+namespace Library\Modeles;
+
 	require "Manager.class.php";
 
 	class PhotoManager extends Manager

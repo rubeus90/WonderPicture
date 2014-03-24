@@ -1,4 +1,5 @@
 <?php
+namespace Library\Modeles;
 
 require "Manager.class.php";
 

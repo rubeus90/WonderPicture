@@ -1,7 +1,6 @@
 <?php
 
-//require "autoload.php";
-
+namespace Library\Entites;
 
 class Photo extends Entities
 	{

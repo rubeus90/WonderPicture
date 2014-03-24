@@ -1,4 +1,7 @@
 <?php
+
+namespace Library;
+
 class Connexion{
 	private $_host, 
 		$_db,

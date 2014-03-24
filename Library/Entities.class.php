@@ -1,5 +1,7 @@
 <?php
 
+namespace Library;
+
 abstract class Entities{
 	public function __construct(array $donnee){
 		if (!empty($donnee))

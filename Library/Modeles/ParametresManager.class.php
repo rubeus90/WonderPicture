@@ -1,4 +1,6 @@
 <?php
+
+namespace Library\Modeles;
 class ParametresManager extends Manager{
 
 	public function ajouter(Parametres $param){
