@@ -20,7 +20,7 @@ class ApplicationFrontend extends \Library\Application{
 		$controlleur = new $controleurPath($this, $route->getMatches());
 
 		//Récupèration de la vue associé au controleur
-		$this->_page->setView('..\\Application\\'.$this->_name.'\\Modules\\'.$route->getModule().'\\view.php');
+		$this->_page->setView('../Application/'.$this->_name.'/Modules/'.$route->getModule().'/view.php');
 				
 		
 		//Envoi de la page généré
