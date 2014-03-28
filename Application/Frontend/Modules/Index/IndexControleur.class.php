@@ -7,13 +7,13 @@ class IndexControleur extends \Library\Controleur {
 	
 	public function run(){
 	
-		//DONNEES
+		//PARAMETRES
 		$nombrePhoto = 5;
 		
 		//RECUPERATION MANAGER
 		$managerPhoto = $this->getManagerof('Photo');
 		
-		//CREATION DES DONNEES DE LA VIEWS
+		//CREATION DES DONNEES
 		$listeDernierePhoto = $managerPhoto->obtenirListe(0,$nombrePhoto);
 		
 		
