@@ -5,6 +5,15 @@
 		<title>WonderPicture</title>
 	</head>
 	<body>
-	Il n'y a rien ... Pour le moment
+	
+		<form action="" method="post">
+				<input type="text" name="toto" />
+				<input type="submit" value ="test" />
+		</form>
+		
+		<?php
+			echo $test;
+		?>
+	
 	</body>
 </html>

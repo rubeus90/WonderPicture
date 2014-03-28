@@ -7,7 +7,8 @@ class IndexControleur extends \Library\Controleur {
 	
 	public function run(){
 
-		//Il n'y a rien ... Pour le moment
-
+		$managerPhoto = $this->getManagerof('Photo');
+		$this->_app->getPage()->setage('test','COUCOU');
+		
 	}
 }
