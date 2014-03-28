@@ -18,6 +18,7 @@ class ApplicationFrontend extends \Library\Application{
 		// INSTANCIATION DU CONTROLEUR
 		$controleurPath = 'Application\\'.$this->_name.'\\Modules\\'.$route->getModule().'\\'.$route->getModule().'Controleur';
 		$controlleur = new $controleurPath($this, $route->getMatches());
+		$controlleur->run();
 
 		//Récupèration de la vue associé au controleur
 		$this->_page->setView('../Application/'.$this->_name.'/Modules/'.$route->getModule().'/view.php');
