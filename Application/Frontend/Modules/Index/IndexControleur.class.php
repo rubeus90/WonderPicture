@@ -8,7 +8,7 @@ class IndexControleur extends \Library\Controleur {
 	public function run(){
 
 		$managerPhoto = $this->getManagerof('Photo');
-		$this->_app->getPage()->setvars('test','COUCOU');
+		$this->_app->getPage()->setVars('test','COUCOU');
 		
 	}
 }
