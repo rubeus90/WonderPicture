@@ -12,7 +12,12 @@
 		</form>
 		
 		<?php
-			echo $test;
+			echo $test.'<br/>';
+			
+			foreach($listeDernierePhoto as $photo){
+			echo $photo->getTitre();
+			echo '<br/>';
+			}
 		?>
 	
 	</body>

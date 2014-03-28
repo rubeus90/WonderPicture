@@ -125,7 +125,48 @@ namespace Library\Modeles;
 			
 			return $liste;
 		}
+		
+		public function obtenirListe($debut = -1,$limite= -1)
+		{
+			$sql = 'SELECT * FROM photo ORDER BY id DESC';
+			
+			if ($debut != -1 || $limite != -1)
+			{
+				$sql .= ' LIMIT '.(int) $limite.' OFFSET '.(int) $debut;
+			}
+			
+			$query = $this->_db->query($sql);
+			
+			$donnees= $query->fetchAll(\PDO::FETCH_OBJ);
+			$liste = array();
+			foreach( $donnees as $photo ){
+				if($photo->acces == 0)
+					$acces=False;
+			  else
+					$acces=True;
+			  
+			  $liste[] = new Photo(array(
+				'id'=>$photo->id,
+				'titre' => $photo->titre,
+				'description' => $photo->description,
+				'url' => $photo->url,
+				'urlMiniature' => $photo->urlMiniature,
+				'extension' => $photo->extension,
+				'poids' => $photo->poids,
+				'largeur' => $photo->largeur,
+				'hauteur' => $photo->hauteur,
+				'dateImport' => $photo->dateImport,
+				'acces' => $acces,
+				'albumId' => $photo->albumId,
+				'note' => $photo->note,
+				'nombreVotant'=> $photo->nombreVotant
+				));
+			}
+			
+			return $liste;
+		}
 	}
+	
 	
 	
 ?>
