@@ -2,9 +2,11 @@
 namespace Library;
 
 class Controleur extends ApplicationComponent{
+	protected $matches;
 
-	public function __construct(Application $app){
+	public function __construct(Application $app, $matches){
 		parent::__construct($app);
+		$this->_$matches = $matches;
 	}
 
 	protected function getManagerof($manager){

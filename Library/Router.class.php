@@ -22,7 +22,7 @@ class Router{
 		
 		//On cherche une route dont l'URL correspondant à l'URL du client
 		foreach($this->_routes as $route){
-			if($route->match($url) !== false){
+			if($route->match($url)){
 				return $route;
 			}		
 		}

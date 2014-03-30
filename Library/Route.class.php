@@ -18,7 +18,7 @@ class Route{
 
 			//Si correspondance, on split sur le / pour ne garder que le string
 			$this->_matches = explode("/",$matches[0]);
-			return $matches;
+			return true;
 			
 		}else{
 			return false;
@@ -36,17 +36,4 @@ class Route{
 	public function getModule(){
 		return $this->_module;
 	}
-
-	public function setUrl($url){
-		if(is_string($url) && !empty($url)){
-			$this->_url = $url;
-		}
-	}
-
-	public function setModule($module){
-		if(is_string($module) && !empty($module)){
-			$this->_module = $module;
-		}
-	}
-
 }
