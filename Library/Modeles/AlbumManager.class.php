@@ -1,7 +1,7 @@
 <?php
 namespace Library\Modeles;
 
-use \Library\Entites\Album
+use \Library\Entites\Album;
 
 class AlbumManager extends \Library\Manager{
 
@@ -20,6 +20,7 @@ class AlbumManager extends \Library\Manager{
 		}catch(exception $e){
 			echo 'erreur de requete : ', $e->getMessage();
 		}
+	}
 
 	public function supprimer(Album $album){
 		$this->_db->exec('DELETE FROM album WHERE id = '.$album->id());
@@ -28,6 +29,13 @@ class AlbumManager extends \Library\Manager{
 	public function obtenir($id){
 		$q = $this->_db->query('SELECT * FROM album WHERE id = '.$id);
 		$donnees = $q->fetchAll(PDO::FETCH_ASSOC);
+
+		return new Album($donnees);
+	}
+
+	public function obtenirParId($titre){
+		$q = $this->_db->query('SELECT * FROM album WHERE titre = '.$titre);
+		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 
 		return new Album($donnees);
 	}
