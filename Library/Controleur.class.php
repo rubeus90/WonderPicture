@@ -6,7 +6,7 @@ class Controleur extends ApplicationComponent{
 
 	public function __construct(Application $app, $matches){
 		parent::__construct($app);
-		$this->_$matches = $matches;
+		$this->matches = $matches;
 	}
 
 	protected function getManagerof($manager){
