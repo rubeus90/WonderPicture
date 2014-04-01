@@ -69,6 +69,7 @@ namespace Library\Entites;
 				$this->urlMiniature = $url;
 			}
 		}
-
+		
+		
 	}
 ?>

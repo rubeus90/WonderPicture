@@ -36,7 +36,7 @@ class Connexion{
 				`description` VARCHAR(255) NULL,
 				`acces` TINYINT(1) NOT NULL DEFAULT 1,
 				`dateCreation` DATETIME NOT NULL,
-				`urlMiniature` VARCHAR(40) NOT NULL,
+				`urlMiniature` VARCHAR(100) NOT NULL,
 				PRIMARY KEY (`id`)
 			) ENGINE=InnoDB DEFAULT CHARSET=utf8; ";
 	    if (!$this->_pdo->query($query)){
@@ -47,8 +47,8 @@ class Connexion{
 				`id` INT(11) NOT NULL AUTO_INCREMENT,
 				`titre` varchar(45) NOT NULL,
 				`description` varchar(255) NULL,
-				`url` varchar(40) NOT NULL,
-				`urlMiniature` varchar(40) NOT NULL,
+				`url` varchar(100) NOT NULL,
+				`urlMiniature` varchar(100) NOT NULL,
 				`extension` varchar(20) NOT NULL,
 				`poids` INT NOT NULL,
 				`largeur` SMALLINT NOT NULL,

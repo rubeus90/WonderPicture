@@ -6,17 +6,20 @@ use \Library\Entites\Album;
 class AlbumManager extends \Library\Manager{
 
 	public function ajouter(Album $album){
+		
 		try{
 			$requetePrepa = $this->_db->prepare('INSERT INTO album(titre, description, acces, dateCreation, urlMiniature) VALUE(:titre, :description, :acces, :dateCreation, :urlMiniature)');
 		
 			$d = array(
 				'titre' => $album->getTitre(),
-				'description' => $album->getDescrition(),
+				'description' => $album->getDescription(),
 				'acces' => $album->getAcces(),
 				'dateCreation' => $album->getDateCreation(),
 				'urlMiniature' => $album->getURLMiniature()
 				);
-			$requetePrepa->execute($d);
+			if($requetePrepa->execute($d)){}
+			else
+			echo 'PROBLEME';
 		}catch(exception $e){
 			echo 'erreur de requete : ', $e->getMessage();
 		}
@@ -28,16 +31,17 @@ class AlbumManager extends \Library\Manager{
 
 	public function obtenir($id){
 		$q = $this->_db->query('SELECT * FROM album WHERE id = '.$id);
-		$donnees = $q->fetchAll(PDO::FETCH_ASSOC);
-
+		$donnees = $q->fetchAll(\PDO::FETCH_ASSOC);
+		
 		return new Album($donnees);
 	}
 
 	public function obtenirParId($titre){
-		$q = $this->_db->query('SELECT * FROM album WHERE titre = '.$titre);
-		$donnees = $q->fetch(PDO::FETCH_ASSOC);
-
+		$q = $this->_db->query('SELECT * FROM album WHERE titre = \''.$titre.'\'');
+		if($donnees = $q->fetch(\PDO::FETCH_ASSOC))
 		return new Album($donnees);
+		else
+		return false;
 	}
 
 	public function modifier(Album $album){
@@ -54,4 +58,14 @@ class AlbumManager extends \Library\Manager{
 		$q->execute($d);
 	}
 
+	public function init()
+		{
+			$album = $this->obtenirParId('Blonde');
+			if($album==false)
+			{
+				$query = $this->_db->exec('INSERT INTO album(titre,description,acces,dateCreation,urlMiniature) VALUE(\'Blonde\',\'Un album de blondes\',1,\'01/04/2014\',\'\')');
+			}
+			$album = $this->obtenirParId('Blonde');
+			return $album->getId();
+		}
 }

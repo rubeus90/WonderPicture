@@ -85,6 +85,19 @@ namespace Library\Modeles;
 					
 		}
 		
+		public function presenceParChemin($photo)
+		{
+		  $query = $this->_db->query('SELECT * FROM photo WHERE url=\''.$photo.'\'');
+		  $objetPhoto =NULL;
+		  
+		  if($donnees= $query->fetch(\PDO::FETCH_OBJ))
+		  {
+			  return true;
+			}	
+			return false;
+					
+		}
+		
 		public function viderAlbum($album)
 		{
 			$query = $this->_db->query('SELECT * FROM photo WHERE albumId='.$album);
@@ -126,9 +139,9 @@ namespace Library\Modeles;
 			return $liste;
 		}
 		
-		public function obtenirListe($debut = -1,$limite= -1)
+		public function obtenirListe($debut = -1,$limite= -1,$colonne='id')
 		{
-			$sql = 'SELECT * FROM photo ORDER BY id DESC';
+			$sql = 'SELECT * FROM photo ORDER BY '.$colonne.' DESC';
 			
 			if ($debut != -1 || $limite != -1)
 			{
@@ -164,6 +177,31 @@ namespace Library\Modeles;
 			}
 			
 			return $liste;
+		}
+		
+		public function init($id)
+		{
+			$bool = $this->presenceParChemin('\\\..\\\..\\\..\\\Image\\\Photo\\\BlondeBBT.jpg');
+			
+			if($bool==false)
+			{
+				$query = $this->_db->exec('INSERT INTO 
+											photo(titre,description,url,urlMiniature,extension,poids,largeur,hauteur,dateImport,acces,albumId,note,nombreVotant) 
+											VALUE(\'Penny ! Penny ! Penny !\',
+												\'A beautiful girl in a beautiful world\',
+												\'\\\..\\\..\\\..\\\Image\\\Photo\\\BlondeBBT.jpg\',
+												\'\\\..\\\..\\\..\\\Image\\\MiniaturePhoto\\\BlondeBBT.jpg\',
+												\'jpg\',
+												190,
+												1280,
+												1024,
+												\'01\/04\/2014\',
+												1,
+												'.$id.',
+												5,
+												1)');
+			}
+			
 		}
 	}
 	
