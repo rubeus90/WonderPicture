@@ -2,11 +2,12 @@
 
 namespace Library\Entites;
 
-class Admin extends \Library\Entities
+class Utilisateur extends \Library\Entities
 	{
 		private $id;
 		private $mdp;
 		private $mail;
+		private $estAdmin;
 		
 		/************************************
 		/			ACCESSEUR
@@ -22,6 +23,9 @@ class Admin extends \Library\Entities
 		public function getMail()
 		{
 			return $this->mail;
+		}
+		public function getEstAdmin(){
+			return $this->estAdmin;
 		}
 		
 		/************************************
@@ -41,6 +45,10 @@ class Admin extends \Library\Entities
 		{
 			if(isset($var) && is_string($var))
 				$this->mail=$var;
+		}
+		public function setEstAdmin($var){
+			if(isset($var) && is_numeric($var))
+				$this->estAdmin = $var;
 		}
 		
 	}
