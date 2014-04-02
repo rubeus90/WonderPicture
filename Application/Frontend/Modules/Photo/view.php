@@ -10,7 +10,8 @@
 				<img src="../../<?php echo $photo->getUrl()?>" class="img" />
 			</div>	
 			<div class="info">
-				<p> COUCOU </p>
+				<p class="titre"> <?php echo $photo->getTitre()?> </p>
+				<p class="description"> <?php echo $photo->getDescription()?> </p>
 			</div>
 		</div>
 		
