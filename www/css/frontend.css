@@ -219,7 +219,6 @@ section {
 }
 
 section .info {
-  background: #ffffff;
   padding: 20px 1%;
 }
 
@@ -294,7 +293,7 @@ section .content {
   position: relative;
 }
 
-section .content .img {
+section .content img {
   display: block;
   max-width: 700px;
   margin: 20px auto 0;
