@@ -4,7 +4,7 @@
  		<meta charset="utf-8">
 		<link rel="stylesheet" media="screen" href="/css/frontend.css" type="text/css" />
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
-		<title>PicShow</title>
+		<title>WonderPicture</title>
 	</head>
 	<body>
 		<header>
@@ -17,7 +17,7 @@
 				</div>	
 			</a>
 			 
-			<a href="/"><h1>PicShow</h1></a>
+			<a href="/"><h1>WonderPicture</h1></a>
 		</header>
 
 		<nav>
