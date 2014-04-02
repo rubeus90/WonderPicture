@@ -3,17 +3,17 @@
  	<head>
  		<meta charset="utf-8">
 		<title>WonderPicture</title>
-		<link rel="stylesheet" href="css/photo.css"/>
 	</head>
 	<body>
-		
 		<div class="ensemble">
-			<img src="" class="photo"/>
-				
+			<div class="content">
+				<img src="../../<?php echo $photo->getUrl()?>" class="img" />
+			</div>	
 			<div class="info">
-			
+				<p> COUCOU </p>
 			</div>
 		</div>
+		
 		
 	</body>
 </html>
