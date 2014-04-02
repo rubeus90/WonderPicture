@@ -181,7 +181,7 @@ namespace Library\Modeles;
 		
 		public function init($id)
 		{
-			$bool = $this->presenceParChemin('\\\..\\\..\\\..\\\Image\\\Photo\\\BlondeBBT.jpg');
+			$bool = $this->presenceParChemin('Image\/Photo\/BlondeBBT.jpg');
 			
 			if($bool==false)
 			{
@@ -189,8 +189,8 @@ namespace Library\Modeles;
 											photo(titre,description,url,urlMiniature,extension,poids,largeur,hauteur,dateImport,acces,albumId,note,nombreVotant) 
 											VALUE(\'Penny ! Penny ! Penny !\',
 												\'A beautiful girl in a beautiful world\',
-												\'\\\..\\\..\\\..\\\Image\\\Photo\\\BlondeBBT.jpg\',
-												\'\\\..\\\..\\\..\\\Image\\\MiniaturePhoto\\\BlondeBBT.jpg\',
+												\'Image\/Photo\/BlondeBBT.jpg\',
+												\'Image\/MiniaturePhoto\/BlondeBBT.jpg\',
 												\'jpg\',
 												190,
 												1280,

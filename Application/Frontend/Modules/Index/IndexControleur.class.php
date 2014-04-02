@@ -6,7 +6,7 @@ class IndexControleur extends \Library\Controleur {
 	
 	public function run(){
 	
-		echo file_exists(__DIR__.'../../../../Library/Modeles/Album.class.php');
+		
 	
 		//PARAMETRES
 		$nombrePhoto = 5;
