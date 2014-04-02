@@ -16,9 +16,9 @@ class Connexion{
 		$this->_pass = $pass;
 
 		$this->dbConnect();
-		/*if(!$this->createDB()){
+		if(!$this->createDB()){
 			throw new \RuntimeException('Erreur de creation des tables');
-		}*/
+		}
 	}
 
 	private function dbConnect(){
@@ -70,10 +70,11 @@ class Connexion{
 			return false;
 		}
 
-		$query = "CREATE TABLE IF NOT EXISTS `admin` (
+		$query = "CREATE TABLE IF NOT EXISTS `utilisateur` (
 				`id` VARCHAR(50) NOT NULL,
 				`mdp` VARCHAR(30) NOT NULL,
 				`mail` VARCHAR(255) NULL,
+				`estAdmin` TINYINT(1) NOT NULL DEFAULT 0,
 				PRIMARY KEY (`id`)
 			) ENGINE=InnoDB DEFAULT CHARSET=utf8; ";
 		if (!$this->_pdo->query($query)){
