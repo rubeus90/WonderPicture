@@ -24,5 +24,7 @@
 		<img src="<?php echo $photoMeilleurNote->getUrlMiniature()?>"/>
 		</div>
 		
+		<a href="/Photo/<?php echo $photoMeilleurNote->getId()?>"> ICI </a>
+		
 	</body>
 </html>
