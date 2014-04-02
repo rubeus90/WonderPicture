@@ -8,10 +8,11 @@ class ConnexionControleur extends \Library\Controleur {
 	public function run(){
 		$managerUtilisateur = $this->getManagerOf('Utilisateur');
 
-		if(isset($_POST['login']) && isset($_POST['mdp']) && exist($_POST['login']) && exist($_POST['mdp'])){
-			$login = toString($_POST['login']);
-			$mdp = toString($_POST['mdp']);
-			if($user = testUtilisateur($login,$mdp)){
+		if(isset($_POST['login']) && isset($_POST['mdp']) && $this->exist($_POST['login']) && $this->exist($_POST['mdp'])){
+			$login = $this->toString($_POST['login']);
+			$mdp = $this->toString($_POST['mdp']);
+			
+			if($user = $managerUtilisateur->testUtilisateur($login,$mdp)){
 				$this->_app->getUser()->Connexion($user);
 				if($user->getEstAdmin()){
 					$this->_app->getUser()->setAdmin(true);
