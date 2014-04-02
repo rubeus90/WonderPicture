@@ -1,0 +1,332 @@
+/*				COULEUR					*/
+@blue: #00c3fd;
+@blue2 :#00aefd;
+@aside : #2b3238;
+@body : #dddddd;
+@info : #ffffff;
+@grey : #c9c2c0;
+@grey2 :#505860;
+
+/*				TAILLE					*/
+@headerpx : 35px;
+@widthThumb : 230px;
+@modile : 750px;
+@asideBig: 18%;
+@asideMiddle: 22%;
+@asideSmall : 25%;
+@comment : 700px;
+
+/*				POLICE					*/
+@h1 : 2.5rem;
+@h2 :	2.1rem; 
+@h3 : 1.8rem;
+@p : 1.5rem;
+
+/**********************************************
+*
+*					 METHODE
+*
+**********************************************/
+.info(){
+	background: @info;
+	padding: 20px 1%;
+	h2{
+		font-size: 2rem;
+		color:black;
+		text-transform: capitalize;
+	}
+	p{
+		font-size: 1.5rem;
+		color:#c9c2c0;
+	}
+}
+
+.buttonform(){
+	float:right;
+	cursor: pointer;
+	padding: 8px 15px;
+	margin: 0 0 0 8px;
+	background:@blue;
+	border-style: none;
+	border-radius: 3px;
+	color:white;
+	transition: all 0.3s ease;
+	&:hover{
+		background:@blue2;
+	}
+}
+
+/**********************************************
+*
+*					 CODE
+*
+**********************************************/
+
+
+*{margin:0;padding:0;font-weight:400;text-decoration:none;font-family: 'Open Sans', sans-serif;}
+
+html,body{
+	width:100%;height:100%;font-size:62.5%;
+	background: @body;
+}
+
+header{
+	@media screen and (min-width:@modile){
+		position:fixed;
+		top:0;
+		z-index: 10;
+		width:100%;
+		height: @headerpx;
+	}
+	background: @blue;	
+	a{
+		h1{
+			display:block;
+			width:400px;
+			margin:auto;
+			text-align: center;
+			font-size:@h1;
+			line-height:@headerpx;
+			color:white;		
+			font-weight:400;		
+		}
+		&:hover h1{
+			letter-spacing: 0.08em;
+		}
+	}
+	.nav{
+		display:table;
+		height: @headerpx;
+		float:right;
+		padding:0 10px;
+		border-left: 1px solid #00afe3;
+		div{
+			display: table-cell;
+			vertical-align: middle;
+			img{	
+				width:20px;
+			}
+			.circle{
+				width:25px;
+				border-radius: 50%;
+			}
+			span{
+				font-size: @p;
+				color:white;
+				padding-left:10px;
+				line-height:@headerpx;
+			}
+		}
+		transition:all 0.3s ease;
+		&:hover{
+			background: @blue2;
+		}
+	}
+}
+
+nav{
+	position:fixed;
+	z-index:8;
+	top:0;
+	left:0;
+	height:100%;
+	padding-top: @headerpx;
+	overflow-y:auto;
+	background: @aside;
+		
+	@media screen and (min-width:1500px){width:@asideBig};
+	@media screen and (min-width:1000px) and (max-width:1500px){width:@asideMiddle};
+	@media screen and (min-width:750px) and (max-width:1000px){width:@asideSmall};
+
+	ul{
+		list-style:none;
+		padding-bottom:40px;
+		li{
+			transition: all .3s ease;
+			border-bottom :2px solid #30373d;
+			&:hover{
+				background: rgba(0,0,0,0.1);
+			}
+			&:first-child{
+				border-top :2px solid #30373d;
+			}
+			
+			a{
+				display:table;
+				width:100%;
+				padding: 10px 0;
+								
+				.description, .icon, .icon2{
+					display:table-cell;
+					vertical-align:middle;
+				}
+				.icon{
+					width: 65px;
+					img{
+						display:block;
+						width: 45px;
+						margin:auto;
+						border-radius: 50%;
+					}
+					.param{
+						width: 30px;
+					}	
+				}
+
+				.description{
+					padding-left:10px;
+					h3{
+						color:white;
+						font-size:1.8rem;
+					}
+					p{
+						color: #505860;
+						font-size: 1.6rem;
+					}
+				}
+			}
+		}
+	}		
+}
+
+section{
+	position: relative;
+	top: @headerpx;
+	@media screen and (min-width:1500px){width:(100% - @asideBig)};
+	@media screen and (min-width:1000px) and (max-width:1500px){width:(100% - @asideMiddle) };
+	@media screen and (min-width:750px) and (max-width:1000px){width:(100% - @asideSmall)};
+
+	@media screen and (min-width:1500px){margin-left:@asideBig};
+	@media screen and (min-width:1000px) and (max-width:1500px){margin-left:@asideMiddle};
+	@media screen and (min-width:750px) and (max-width:1000px){margin-left:@asideSmall};
+	overflow:auto;
+
+	.info{ // Barre blanc en TOP
+		.info();
+	}
+
+	.msg{ //Message d'erreur
+		background: @blue;
+		padding: 20px 1%;
+		text-align:center;
+		p{
+			color:white;
+			font-size: 1.5rem;
+		}
+	}
+
+	.form-step{ // Etape formulaire
+		display: inline-block;
+		vertical-align: middle;
+		text-align:center;
+		width:30px; height:30px;
+		line-height: 30px;
+		border-radius: 50%;
+		background:@blue;
+		color:white;
+		margin-right: 20px;
+	}
+
+	.add{ //Formulaire pour ajout Image ou Album
+		max-width:@comment;
+		margin:auto;
+
+		fieldset{
+			border-style:none;
+			padding: 15px 0;
+			margin: 50px 0;
+			border-bottom:1px solid #c6c6c6;
+			
+			legend{
+				color:black;
+				font-size:1.8rem;
+			}
+			select,input[type="text"], input[type="file"], input[type="number"], input[type="password"],input[type="email"]{
+				display:block;
+				box-sizing: border-box;
+				width:100%;
+				margin:10px 0;
+				background:#d2d2d2;
+				border:none;
+				padding:15px;
+				border-radius: 3px;
+				color: #545454;
+				transition:all 0.3s ease;
+				&:focus{
+					background:#c6c6c6;
+				}
+			}
+			input[type="radio"]{
+				margin: 2px 5px;
+			}
+	
+			label{ //Radio box
+				color:black;
+				font-size:1.3rem;
+				padding-right:20px;
+			}
+		}
+		input[type="submit"]{
+			cursor: pointer;
+			padding:10px 20px;
+			margin-bottom:30px;
+			border-radius: 3px;
+			color:white;
+			background:@blue;
+			border-width:1px 1px 2px;
+			border-style: solid;
+			border-color: #00afe3;
+		}
+	}
+
+	.album{ //Formulaire pour l'edition ou suppression des albums
+		.info();
+		button{
+			.buttonform();
+		}
+		select{
+			width:80px;
+			border-style: none;
+			background: transparent;
+		}
+	}
+
+	.picture{ //Formulaire pour l'edition ou suppression d'image
+		width:@comment;
+		padding: 15px 10px;
+		margin:10px auto;
+		border-top: 1px solid #c6c6c6;
+		transition:all 0.3s ease;
+		&:hover{
+			background:#d7d7d7;
+		}
+		.inline{
+			display: inline-block;
+			vertical-align: middle;
+			//border:1px solid red;
+			img{
+				border-radius: 50%;
+				height:60px;
+				width:60px;
+			}
+			div{
+				margin-left: 20px;
+				select{
+					width:80px;
+					border-style: none;
+					background: transparent;
+				}
+				h3{ //Titre de l'image
+					font-size:1.8rem;
+				}
+				p{ //Description de l'image
+					font-size: 1.5rem;
+					color: #505860;
+				}
+			}
+		}	
+		button{
+			.buttonform();
+		}	
+	}
+}

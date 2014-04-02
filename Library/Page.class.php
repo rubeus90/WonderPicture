@@ -26,7 +26,15 @@ class Page extends ApplicationComponent{
 
 			ob_start();
 			require $this->_view;
-			return  ob_get_clean();
+			$content = ob_get_clean();
+
+			ob_start();
+			require __DIR__.'/../Application/'.$this->_app->getName().'/Templates/nav.php';
+			$nav = ob_get_clean();
+
+			ob_start();
+			require __DIR__.'/../Application/'.$this->_app->getName().'/Templates/layout.php';
+			return ob_get_clean();
 		}
 		
 		throw new \RuntimeException('La vue spécifiée n\'existe pas');
