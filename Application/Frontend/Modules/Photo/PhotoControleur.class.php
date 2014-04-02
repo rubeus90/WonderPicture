@@ -16,6 +16,12 @@ class PhotoControleur extends \Library\Controleur {
 		
 		//CREATION DES DONNEES
 		$photo = $managerPhoto->obtenir($photoID);
+		if($photo==NULL )
+			$this->_app->getHTTPResponse()->error();
+		
+		if($photo->getAcces()==0)
+			if($this->_app->getUser()->isAdmin())
+				$this->_app->getHTTPResponse()->error();
 		
 		//ATTRIBUTION DES VARIABLES
 		$page = $this->_app->getPage();
