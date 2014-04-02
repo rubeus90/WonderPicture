@@ -1,12 +1,12 @@
 <?php
 namespace Application\Utilisateur;
 
-class ApplicationFrontend extends \Library\Application{
+class ApplicationUtilisateur extends \Library\Application{
 	protected $_name;
 
 	public function __construct(){
 		parent::__construct();
-		$this->_name = 'Frontend';
+		$this->_name = 'Utilisateur';
 	}
 
 	public function run(){

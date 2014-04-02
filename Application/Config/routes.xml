@@ -8,5 +8,5 @@
 	<route url="/Album/(\w+)" module="Album"/>
 
 	<!-- ROUTE CONNEXION -->
-	<route url="/Connexion" module="Album"/>
+	<route url="/Connexion" module="Connexion"/>
 </routes>
