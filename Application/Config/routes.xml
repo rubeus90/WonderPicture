@@ -6,6 +6,7 @@
 	<!-- ROUTE FRONTEND -->
 	<route url="/" module="Index"/>
 	<route url="/Album/(\w+)" module="Album"/>
+	<route url="/Photo/(\w+)" module="Photo"/>
 
 	<!-- ROUTE CONNEXION -->
 	<route url="/Connexion" module="Connexion"/>

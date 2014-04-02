@@ -8,7 +8,7 @@ abstract class Application{
 
 	public function __construct(){
 		$host = 'localhost';
-		$db ='wonderpicture';
+		$db ='wonderpicture2';
 		$login = 'root';
 		$pass ='';
 
