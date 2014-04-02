@@ -3,7 +3,7 @@
  	<head>
  		<meta charset="utf-8">
 		<title>WonderPicture</title>
-		<link rel="stylesheet" href="css/photo.css">
+		<link rel="stylesheet" href="css/photo.css"/>
 	</head>
 	<body>
 		

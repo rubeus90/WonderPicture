@@ -3,4 +3,8 @@ RewriteEngine On
 RewriteRule ^(Connexion.*)$ utilisateur.php [QSA,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8f401e4f63ed00c7d2cd537b89d99b1d8fe2f57
 RewriteRule ^(.*)$ index.php [QSA,L]
