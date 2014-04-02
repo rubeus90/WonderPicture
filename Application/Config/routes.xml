@@ -6,4 +6,7 @@
 	<!-- ROUTE FRONTEND -->
 	<route url="/" module="Index"/>
 	<route url="/Album/(\w+)" module="Album"/>
+
+	<!-- ROUTE CONNEXION -->
+	<route url="/Connexion" module="Album"/>
 </routes>

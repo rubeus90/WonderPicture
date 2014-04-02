@@ -9,7 +9,7 @@ class AlbumControleur extends \Library\Controleur {
 		$managerPhoto = $this->getManagerOf('Photo');
 		$managerAlbum = $this->getManagerOf('Album');
 
-		$nomAlbum = $this->matches[1];
+		$nomAlbum = $this->matches[2];
 		$idAlbum = $managerAlbum->obtenirParId($nomAlbum)->getId();
 		$listeImage = $managerPhoto->obtenirTous($idAlbum);
 
