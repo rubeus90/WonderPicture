@@ -15,6 +15,7 @@
 @asideMiddle: 22%;
 @asideSmall : 25%;
 @comment : 700px;
+@contentMobile : 95%;
 
 /*				POLICE					*/
 @h1 : 2.5rem;
@@ -41,25 +42,33 @@ header{
 	background: @blue;	
 	a{
 		h1{
-			display:block;
-			width:400px;
-			margin:auto;
-			text-align: center;
+			font-weight:400;
+			color:white;
 			font-size:@h1;
-			line-height:@headerpx;
-			color:white;		
-			font-weight:400;		
+			text-align: center;
+			@media screen and (min-width:@modile){
+				display:block;
+				width:400px;
+				margin:auto;	
+				line-height:@headerpx;	
+			}
+			@media screen and (max-width:@modile){
+				display:block;
+				clear:both;
+			}		
 		}
 		&:hover h1{
 			letter-spacing: 0.08em;
 		}
 	}
 	.nav{
-		display:table;
 		height: @headerpx;
 		float:right;
+		display:table;
 		padding:0 10px;
-		border-left: 1px solid #00afe3;
+		@media screen and (min-width:@modile){
+			border-left: 1px solid #00afe3;
+		}
 		div{
 			display: table-cell;
 			vertical-align: middle;
@@ -88,6 +97,10 @@ header{
 
 nav{
 	background: @aside;
+
+	@media screen and (min-width:@modile){
+		width:@contentMobile;
+	}
 
 	@media screen and (min-width:@modile){
 		position:fixed;
@@ -147,6 +160,7 @@ nav{
 }
 
 section{
+
 	@media screen and (min-width:@modile){
 		position: relative;
 		top: @headerpx;
@@ -161,11 +175,20 @@ section{
 	overflow:auto;
 
 	.info{
-		padding: 20px 1%;
+		background: @info;
+		@media screen and (min-width:@modile){
+			padding: 20px 1%;
+		}
+		@media screen and (max-width:@modile){
+			padding: 20px 5%;
+		}
 		h2{
 			font-size:@h2;
 			color:black;
 			text-transform: capitalize;
+			.star{
+				color:@blue;
+			}
 		}
 		p{
 			font-size: @p;
@@ -209,19 +232,31 @@ section{
 	.content{
 		position:relative;
 		img{
+			@media screen and (min-width:@modile){
+				max-width: @comment;
+				margin:20px auto 0;
+			}
+			@media screen and (max-width:@modile){
+				width:@contentMobile;
+				margin: 2% auto;
+			}
 			display:block;
-			max-width: @comment;
-			margin:20px auto 0;
+			
 			box-shadow: 0px 0px 3px rgba(34, 25, 25, 0.4);
 		}
 		.prec, .next{
-			position:absolute;
-			top:40%;
-			font-size:10rem;
-			color:black;
-			transition:all 0.3s ease;
-			&:hover{
-				color:@blue;
+			@media screen and (min-width:@modile){
+				position:absolute;
+				top:40%;
+				font-size:10rem;
+				color:black;
+				transition:all 0.3s ease;
+				&:hover{
+					color:@blue;
+				}
+			}
+			@media screen and (max-width:@modile){
+				display:none;
 			}
 		}
 		.next{
@@ -253,9 +288,16 @@ section{
 }
 
 
-.comment{		
-	max-width:@comment;
-	margin: 20px auto;
+
+.comment{
+	@media screen and (min-width:@modile){
+		max-width:@comment;
+		margin: 20px auto;
+	}
+	@media screen and (max-width:@modile){
+		width:@contentMobile;
+		margin: 2% auto;
+	}		
 	li{
 		display:table;
 		width:100%;
@@ -298,14 +340,47 @@ section{
 }
 
 form{
-	max-width: @comment;
-	margin:auto;
+	@media screen and (min-width:@modile){
+		max-width:@comment;
+		margin: 0 auto;
+	}
+	@media screen and (max-width:@modile){
+		width:@contentMobile;
+		margin: 0 auto;
+	}
+	.stars{
+		width: 226px;
+		font-size: 3rem;
+		display:table-cell;
+		float:right;
+		input{
+			float: right;
+			opacity: 0;
+			position: absolute;
+		}
+		label{
+			float:right;
+			color:#c6c6c6;
+			transition: @blue .4s all;
+		}
+		.select{
+			color:@blue;
+		}
+		label:hover ~ label,
+		input:focus ~ label,
+		label:hover{
+			color:  @blue2;
+			cursor: pointer;
+		}
+	}
+	
 	textarea{
 		width:100%;
 		resize:none;
 		font-size:@p;
+		clear:both;
 		box-sizing: border-box;
-		margin:10px 0;
+		margin: 0;
 		background:#d2d2d2;
 		border:none;
 		padding:15px;

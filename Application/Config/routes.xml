@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="iso-8859-1" ?>
 <routes>
 	<!-- ROUTE BACKEND -->
-	<!-- Quelque chose -->
+	<route url="/admin" module="Settings"/>
+	<route url="/admin/user" module="User"/>
+	<route url="/admin/addPicture" module="UploadPicture"/>
+	<route url="/admin/addAlbum" module="UploadAlbum"/>
+	<route url="/admin/(\w+)" module="Album"/>
+
+	<!-- ROUTE CONNEXION/DECO -->
+	<route url="/Connexion" module="Connexion"/>
+	<route url="/Deconnexion" module="Deconnexion"/>
+	<route url="/Register" module="Register"/>
+	<route url="/Profil" module="Profil"/>
 
 	<!-- ROUTE FRONTEND -->
 	<route url="/" module="Index"/>
-	<route url="/Album/(\w+)" module="Album"/>
-	<route url="/Photo/(\w+)" module="Photo"/>
-
-	<!-- ROUTE CONNEXION -->
-	<route url="/Connexion" module="Connexion"/>
+	<route url="/index.php" module="Index"/>
+	<route url="/index.html" module="Index"/>
+	<route url="/(\w+)" module="Gallerie"/>
+	<route url="/(\w+)/(\w+)" module="Picture"/>
 </routes>

@@ -1,11 +1,15 @@
 <ul>
-	<li><a href="FIXME">
+	<?php
+	foreach($albums as $element){
+	?>
+	<li><a href="<?php echo '/'.$element->getName()?>">
 		<div class="icon">
-			<img src="FIXME" alt="FIXME">
+			<img src="<?php echo '/'.$element->getThumb() ?>" alt="<?php echo $element->getName() ?>">
 		</div>
 		<div class="description">
-			<h3>Un Album</h3>
-			<p>Une description</p>
+			<h3><?php echo $element->getName() ?></h3>
+			<p><?php echo $element->getDescription() ?></p>
 		</div>
 	</a></li>
+	<?php } ?>
 </ul>

@@ -1,6 +1,11 @@
 RewriteEngine On
 
-RewriteRule ^(Connexion.*)$ utilisateur.php [QSA,L]
+RewriteRule ^(admin.*)$ backend.php [QSA,L]
+
+RewriteRule ^(Connexion.*)$ connexion.php [QSA,L]
+RewriteRule ^(Deconnexion.*)$ connexion.php [QSA,L]
+RewriteRule ^(Register.*)$ connexion.php [QSA,L]
+RewriteRule ^(Profil.*)$ connexion.php [QSA,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteRule ^(.*)$ frontend.php [QSA,L]

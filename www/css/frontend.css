@@ -35,14 +35,26 @@ header {
 }
 
 header a h1 {
-  display: block;
-  width: 400px;
-  margin: auto;
-  text-align: center;
-  font-size: 2.5rem;
-  line-height: 35px;
-  color: white;
   font-weight: 400;
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 750px) {
+  header a h1 {
+    display: block;
+    width: 400px;
+    margin: auto;
+    line-height: 35px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  header a h1 {
+    display: block;
+    clear: both;
+  }
 }
 
 header a:hover h1 {
@@ -50,13 +62,18 @@ header a:hover h1 {
 }
 
 header .nav {
-  display: table;
   height: 35px;
   float: right;
+  display: table;
   padding: 0 10px;
-  border-left: 1px solid #00afe3;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+@media screen and (min-width: 750px) {
+  header .nav {
+    border-left: 1px solid #00afe3;
+  }
 }
 
 header .nav div {
@@ -88,6 +105,12 @@ header .nav:hover {
 
 nav {
   background: #2b3238;
+}
+
+@media screen and (min-width: 750px) {
+  nav {
+    width: 95%;
+  }
 }
 
 @media screen and (min-width: 750px) {
@@ -219,13 +242,29 @@ section {
 }
 
 section .info {
-  padding: 20px 1%;
+  background: #ffffff;
+}
+
+@media screen and (min-width: 750px) {
+  section .info {
+    padding: 20px 1%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  section .info {
+    padding: 20px 5%;
+  }
 }
 
 section .info h2 {
   font-size: 2.1rem;
   color: black;
   text-transform: capitalize;
+}
+
+section .info h2 .star {
+  color: #00c3fd;
 }
 
 section .info p {
@@ -295,25 +334,46 @@ section .content {
 
 section .content img {
   display: block;
-  max-width: 700px;
-  margin: 20px auto 0;
   -webkit-box-shadow: 0px 0px 3px rgba(34, 25, 25, 0.4);
   box-shadow: 0px 0px 3px rgba(34, 25, 25, 0.4);
 }
 
-section .content .prec,
-section .content .next {
-  position: absolute;
-  top: 40%;
-  font-size: 10rem;
-  color: black;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+@media screen and (min-width: 750px) {
+  section .content img {
+    max-width: 700px;
+    margin: 20px auto 0;
+  }
 }
 
-section .content .prec:hover,
-section .content .next:hover {
-  color: #00c3fd;
+@media screen and (max-width: 750px) {
+  section .content img {
+    width: 95%;
+    margin: 2% auto;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  section .content .prec,
+  section .content .next {
+    position: absolute;
+    top: 40%;
+    font-size: 10rem;
+    color: black;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  section .content .prec:hover,
+  section .content .next:hover {
+    color: #00c3fd;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  section .content .prec,
+  section .content .next {
+    display: none;
+  }
 }
 
 section .content .next {
@@ -348,9 +408,18 @@ section .download img:hover {
   transform: rotate(360deg);
 }
 
-.comment {
-  max-width: 700px;
-  margin: 20px auto;
+@media screen and (min-width: 750px) {
+  .comment {
+    max-width: 700px;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .comment {
+    width: 95%;
+    margin: 2% auto;
+  }
 }
 
 .comment li {
@@ -402,19 +471,60 @@ section .download img:hover {
   font-size: 1.5rem;
 }
 
-form {
-  max-width: 700px;
-  margin: auto;
+@media screen and (min-width: 750px) {
+  form {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  form {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+form .stars {
+  width: 226px;
+  font-size: 3rem;
+  display: table-cell;
+  float: right;
+}
+
+form .stars input {
+  float: right;
+  opacity: 0;
+  position: absolute;
+}
+
+form .stars label {
+  float: right;
+  color: #c6c6c6;
+  -webkit-transition: #00c3fd 0.4s all;
+  transition: #00c3fd 0.4s all;
+}
+
+form .stars .select {
+  color: #00c3fd;
+}
+
+form .stars label:hover ~ label,
+form .stars input:focus ~ label,
+form .stars label:hover {
+  color: #00aefd;
+  cursor: pointer;
 }
 
 form textarea {
   width: 100%;
   resize: none;
   font-size: 1.5rem;
+  clear: both;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 10px 0;
+  margin: 0;
   background: #d2d2d2;
   border: none;
   padding: 15px;
