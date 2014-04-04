@@ -4,15 +4,8 @@ namespace Library\Models;
 use \Library\Entities\Album;
 use \Library\Entity;
 
-class AlbumManager extends \Library\Manager implements \Library\Singleton{
+class AlbumManager extends \Library\Manager{
 	protected static $instance;
-
-	public static function getInstance($pdo){
-		if (!isset(self::$instance)){
-			self::$instance = new self($pdo);
-		}
-		return self::$instance;
-	}
 
 	public function add(Entity $album){
 		

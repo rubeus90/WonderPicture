@@ -3,7 +3,7 @@ namespace Library\Models;
 
 use \Library\Entity;
 
-class ConfigManager{
+class ConfigManager implements \Library\Singleton{
 	private static $instance;
 	private $_vars = array(), // Hashmap
 			$_db;

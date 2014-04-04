@@ -1,7 +1,7 @@
 <?php
 namespace Library;
 
-abstract class Manager{
+abstract class Manager implements \Library\Singleton{
 	protected $_db;
 
 	protected function __construct($db){
@@ -10,6 +10,13 @@ abstract class Manager{
 
 	public function setDb(PDO $db){
 		$this->_db =$db;
+	}
+
+	public static function getInstance($pdo){
+		if (!isset(static::$instance)){
+			static::$instance = new static($pdo);
+		}
+		return static::$instance;
 	}
 
 	

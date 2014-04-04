@@ -7,14 +7,6 @@ use \Library\Entity;
 class PictureManager extends \Library\Manager implements \Library\Singleton{
 	protected static $instance;
 
-
-	public static function getInstance($pdo){
-		if (!isset(self::$instance)){
-			self::$instance = new self($pdo);
-		}
-		return self::$instance;
-	}
-
 	public function add(Entity $image){
 
 		//Securite

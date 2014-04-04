@@ -7,13 +7,6 @@ use \Library\Entity;
 class NoteManager extends \Library\Manager{
 	protected static $instance;
 
-	public static function getInstance($pdo){
-		if (!isset(self::$instance)){
-			self::$instance = new self($pdo);
-		}
-		return self::$instance;
-	}
-
 	public function add(Entity $note){
 		//Securite
 		$number = $note->getNote();
