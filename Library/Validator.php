@@ -29,7 +29,7 @@ trait Validator{
     function isValidFile($var){
 		$fileName = pathinfo($var['name']);
         $fileExtension = $fileName['extension'];
-		$extentionSafe = array('jpg', 'jpeg', 'png');
+		$extentionSafe = array('jpg', 'jpeg', 'png', 'JPG');
 
 		return ($var['error'] == 0 && in_array($fileExtension, $extentionSafe)) ? true : false;		
 	}

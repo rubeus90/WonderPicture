@@ -34,6 +34,7 @@ abstract class Entity{
 
 		switch($type) {
 			case 'jpg' :
+			case 'JPG' :
 	        case 'jpeg': $sourceImg = imagecreatefromjpeg($dest); break;
 	        case 'png': $sourceImg = imagecreatefrompng($dest); break;
 	        default: return false;
