@@ -30,20 +30,20 @@ class ApplicationBackend extends \Library\Application{
 			$controlleur = new $controleurPath($this, $route->getMatches());
 			$controlleur->run();
 
-			// GESTION UTILISATEUR 
-			$name = $this->getUser()->get('user')->getName();
-			$avatar = $this->getUser()->get('user')->getAvatar();
-			$this->getPage()->setVars('name', $name);
-			$this->getPage()->setVars('avatar', $avatar);
-
-			//Récupèration de la vue associé au controleur
+			// VUE CONTROLEUR
 			$this->_page->setView('..\\Application\\'.$this->_name.'\\Modules\\'.$route->getModule().'\\view.php');
 			
-			//On Appelle le controleur pour le menu du gauche
+
+			// INSTANCIATION CONTROLEUR HEADER
+			$NavControleur = new \Library\Controleur\HeaderControleur($this, $route->getMatches());
+			$NavControleur->run();
+
+			
+			// CONTROLEUR MENU
 			$NavControleur = new \Library\Controleur\NavControleur($this, $route->getMatches());
 			$NavControleur->run();
 
-			//Envoi de la page généré
+			// ENVOI PAGE
 			exit($this->_page->getPage());
 		}else{
 			$this->getHTTPResponse()->error();
