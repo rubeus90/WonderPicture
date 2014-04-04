@@ -55,7 +55,7 @@ abstract class Controleur extends ApplicationComponent{
 
 	final protected function getManagerof($manager){
 		$path = '\\Library\Models\\'.$manager.'Manager';
-		return new $path($this->_app->getPDO());
+		return $path::getInstance($this->_app->getPDO());
 	}
 
 	abstract function run();

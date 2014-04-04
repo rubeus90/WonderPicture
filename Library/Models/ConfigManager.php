@@ -4,12 +4,20 @@ namespace Library\Models;
 use \Library\Entity;
 
 class ConfigManager{
+	private static $instance;
 	private $_vars = array(), // Hashmap
 			$_db;
 
-	public function __construct($db){
+	private function __construct($db){
 		$this->_db =$db;
 		$this->hydrate();
+	}
+
+	public static function getInstance($pdo){
+		if (!isset(self::$instance)){
+			self::$instance = new self($pdo);
+		}
+		return self::$instance;
 	}
 
 	private function hydrate(){

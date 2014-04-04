@@ -5,6 +5,14 @@ use \Library\Entities\User;
 use \Library\Entity;
 
 class UserManager extends \Library\Manager{
+	protected static $instance;
+
+	public static function getInstance($pdo){
+		if (!isset(self::$instance)){
+			self::$instance = new self($pdo);
+		}
+		return self::$instance;
+	}
 
 	public function add(Entity $user){
 		
