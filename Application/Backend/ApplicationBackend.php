@@ -17,7 +17,11 @@ class ApplicationBackend extends \Library\Application{
 
 		// INSTANCIATION DU ROUTER
 		$Router = new \Library\Router();
-		$route = $Router->get($_SERVER['REQUEST_URI']);	
+		
+		//RECHERCHE D'UNE ROUTE
+		if(($route = $Router->get($_SERVER['REQUEST_URI'])) === false){
+			$this->getHTTPResponse()->error();
+		}	
 
 		//On teste si l'utilisateur est un admin
 		if($this->getUser()->isAdmin()){

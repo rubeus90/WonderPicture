@@ -15,17 +15,21 @@ class ApplicationConnexion extends \Library\Application{
 		
 		// INSTANCIATION DU ROUTER
 		$Router = new \Library\Router();
-		$route = $Router->get($_SERVER['REQUEST_URI']);	
+
+		//RECHERCHE D'UNE ROUTE
+		if(($route = $Router->get($_SERVER['REQUEST_URI'])) === false || $route->getApplication() != $this->_name){
+			$this->getHTTPResponse()->error();
+		}	
 
 		// INSTANCIATION DU CONTROLEUR
 		$controleurPath = 'Application\\'.$this->_name.'\\Modules\\'.$route->getModule().'\\'.$route->getModule().'Controleur';
 		$controlleur = new $controleurPath($this, $route->getMatches());
 		$controlleur->run();
 
-		//Récupèration de la vue associé au controleur
+		// VUE CONTROLEUR
 		$this->_page->setView('..\\Application\\'.$this->_name.'\\Modules\\'.$route->getModule().'\\view.php');
 
-		//Envoi de la page généré
+		// ENVOI DE LA PAGE
 		exit($this->_page->getPage());
 	}
 

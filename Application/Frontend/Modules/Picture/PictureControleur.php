@@ -23,7 +23,7 @@ class PictureControleur extends \Library\Controleur {
 
 		//Si l'album n'existe pas -> redirection
 		if(!$PictureManager->exist($title)){
-			$this->_app->getHTTPResponse()->redirect("/");
+			$this->_app->getHTTPResponse()->error();
 		}
 		
 		//On récupère l'object image correspondant au nom de l'album qui se trouve dans l'URL

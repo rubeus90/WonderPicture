@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="iso-8859-1" ?>
 <routes>
 	<!-- ROUTE BACKEND -->
-	<route url="/admin" module="Settings"/>
-	<route url="/admin/user" module="User"/>
-	<route url="/admin/addPicture" module="UploadPicture"/>
-	<route url="/admin/addAlbum" module="UploadAlbum"/>
-	<route url="/admin/(\w+)" module="Album"/>
+	<route url="/admin" application="Backend" module="Settings"/>
+	<route url="/admin/user" application="Backend"  module="User"/>
+	<route url="/admin/addPicture" application="Backend" module="UploadPicture"/>
+	<route url="/admin/addAlbum" application="Backend" module="UploadAlbum"/>
+	<route url="/admin/(\w+)" application="Backend" module="Album"/>
 
 	<!-- ROUTE CONNEXION/DECO -->
-	<route url="/Connexion" module="Connexion"/>
-	<route url="/Deconnexion" module="Deconnexion"/>
-	<route url="/Register" module="Register"/>
-	<route url="/Profil" module="Profil"/>
+	<route url="/Connexion" application="User" module="Connexion"/>
+	<route url="/Deconnexion" application="User" module="Deconnexion"/>
+	<route url="/Register" application="User" module="Register"/>
+	<route url="/Profil" application="User" module="Profil"/>
 
 	<!-- ROUTE FRONTEND -->
-	<route url="/" module="Index"/>
-	<route url="/index.php" module="Index"/>
-	<route url="/index.html" module="Index"/>
-	<route url="/(\w+)" module="Gallerie"/>
-	<route url="/(\w+)/(\w+)" module="Picture"/>
+	<route url="/" application="Frontend" module="Index"/>
+	<route url="/index.php" application="Frontend" module="Index"/>
+	<route url="/index.html" application="Frontend" module="Index"/>
+	<route url="/(\w+)" application="Frontend" module="Gallerie"/>
+	<route url="/(\w+)/(\w+)" application="Frontend" module="Picture"/>
 </routes>

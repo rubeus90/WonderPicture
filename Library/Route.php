@@ -3,11 +3,13 @@ namespace Library;
 
 class Route{
 	private $_url,
+		$_application,
 		$_module,
 		$_matches;
 
-	public function __construct($url, $module){
+	public function __construct($url, $application,$module){
 		$this->_url = $url;
+		$this->_application = $application;
 		$this->_module= $module;
 	}
 
@@ -35,5 +37,9 @@ class Route{
 
 	public function getModule(){
 		return $this->_module;
+	}
+
+	public function getApplication(){
+		return $this->_application;
 	}
 }

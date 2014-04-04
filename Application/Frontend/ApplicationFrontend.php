@@ -12,12 +12,19 @@ class ApplicationFrontend extends \Library\Application{
 
 		// INSTANCIATION DU ROUTER
 		$Router = new \Library\Router();
-		$route = $Router->get($_SERVER['REQUEST_URI']);	
 
-		// INSTANCIATION DU CONTROLEUR
+		//RECHERCHE D'UNE ROUTE
+		if(($route = $Router->get($_SERVER['REQUEST_URI'])) === false || $route->getApplication() != $this->_name){
+			$this->getHTTPResponse()->error();
+		}	
+
+		// INSTANCIATION DU CONTROLEUR PRINCIPALE
 		$controleurPath = 'Application\\'.$this->_name.'\\Modules\\'.$route->getModule().'\\'.$route->getModule().'Controleur';
 		$controlleur = new $controleurPath($this, $route->getMatches());
 		$controlleur->run();
+
+		//VUE CONTROLEUR
+		$this->_page->setView('..\\Application\\'.$this->_name.'\\Modules\\'.$route->getModule().'\\view.php');
 		
 		// GESTION UTILISATEUR 
 		if(($connecting = $this->getUser()->isConnected())){
@@ -31,15 +38,12 @@ class ApplicationFrontend extends \Library\Application{
 		$admin = ($this->getUser()->isAdmin()) ? true : false;
 		$this->getPage()->setVars('isAdmin', $admin);
 
-
-		//Récupèration de la vue associé au controleur
-		$this->_page->setView('..\\Application\\'.$this->_name.'\\Modules\\'.$route->getModule().'\\view.php');
-				
-		//On Appelle le controleur pour le menu du gauche
+		
+		// INSTANCIATION CONTROLEUR MENU
 		$NavControleur = new \Library\Controleur\NavControleur($this, $route->getMatches());
 		$NavControleur->run();
 		
-		//Envoi de la page généré
+		// ENVOI DE LA PAGE
 		exit($this->_HTTPResponse->send($this->_page->getPage()));
 	}
 }

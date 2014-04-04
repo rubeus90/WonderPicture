@@ -12,7 +12,7 @@ class Router{
       	$elements = $xml->getElementsByTagName('route');
 
       	foreach ($elements as $element){
-      		$this->_routes[] = new Route($element->getAttribute('url'), $element->getAttribute('module'));
+      		$this->_routes[] = new Route($element->getAttribute('url'),$element->getAttribute('application'), $element->getAttribute('module'));
       	}
 	}
 
@@ -28,7 +28,6 @@ class Router{
 			}		
 		}
 
-		//Si aucune route ne correspond, on lève une exeption
-		throw new \RuntimeException('Aucune route ne correspond à l\'URL');
+		return false;
 	}
 }
