@@ -35,8 +35,9 @@ class ApplicationFrontend extends \Library\Application{
 		//Récupèration de la vue associé au controleur
 		$this->_page->setView('..\\Application\\'.$this->_name.'\\Modules\\'.$route->getModule().'\\view.php');
 				
-		//On Construit le menu a gauche
-		$controlleur->setNav();
+		//On Appelle le controleur pour le menu du gauche
+		$NavControleur = new \Library\Controleur\NavControleur($this, $route->getMatches());
+		$NavControleur->run();
 		
 		//Envoi de la page généré
 		exit($this->_HTTPResponse->send($this->_page->getPage()));

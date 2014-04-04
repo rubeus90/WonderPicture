@@ -9,11 +9,6 @@ abstract class Controleur extends ApplicationComponent{
 		$this->_vars = $vars;
 	}
 
-	public function setNav(){
-		$albums = $this->_app->getUser()->isConnected() ? $this->getManagerof('Album')->getAll($this->getOrderAlbum()) : $this->getManagerof('Album')->getAllPublic($this->getOrderAlbum());
-		$this->_app->getPage()->setVars('albums', $albums);
-	}
-
 	final protected function getOrderPicture(){
 		$order = $this->getManagerof('Config')->get('order_picture');
 		switch ($order){
