@@ -63,7 +63,11 @@ class AlbumControleur extends \Library\Controleur {
 			$picture = $this->_PictureManager->get($id);
 
 			//Vérification dans les setters
-			$picture->setPublic($_POST['visibilite']);
+			//echo $picture->getAlbum_id();
+			//echo $this->_AlbumManager->get($picture->getAlbum_id())->isPublic();
+			if($this->_AlbumManager->get($picture->getAlbum_id())->isPublic()){
+				$picture->setPublic($_POST['visibilite']);
+			}
 			$picture->setAlbum_id($_POST['album']);
 
 			$this->_PictureManager->update($picture);

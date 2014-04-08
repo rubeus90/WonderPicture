@@ -49,7 +49,7 @@ class AlbumManager extends \Library\Manager{
 
 	//Retourne l'object album dont l'ID a été passé en paramètre
 	public function get($id){
-		$req = $this->_db->prepare('SELECT id, name, description FROM album WHERE id = :id');
+		$req = $this->_db->prepare('SELECT id, name, description,public FROM album WHERE id = :id');
     	$req->bindParam(':id', $id,\PDO::PARAM_INT);
     	$req->execute();
 

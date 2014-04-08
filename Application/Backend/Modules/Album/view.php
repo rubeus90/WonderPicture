@@ -26,10 +26,12 @@
 			<p><?php echo $picture->getDescription() ?></p>
 		</div>
 		<div>
+			<?php if($album->isPublic()){ ?>
 			<select name="visibilite">
 				<option value="1" <?php if($picture->isPublic()){ echo 'selected';}?>>Public</option>
 				<option value="0" <?php if(!$picture->isPublic()){ echo 'selected';}?>>Privé</option>
 			</select>
+			<?php } ?>
 			<select name="album">
 				<?php foreach($albums as $element){?>
 					<option value="<?php echo $element->getId(); ?>" <?php if($picture->getAlbum_id() == $element->getId()){ echo 'selected';}?>> <?php echo $element->getName(); ?></option>';
