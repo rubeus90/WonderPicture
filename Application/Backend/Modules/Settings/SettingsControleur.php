@@ -41,14 +41,9 @@ class SettingsControleur extends \Library\Controleur {
 				$this->_app->getPage()->setVars('txt', $txt);
 			}
 		}
-		
-		if(!empty($_POST['nombre'])){	
-			$config->set('mail_activation',$_POST['mail_activation']);
-		}
-
+	
 		$config->set('order_album',$_POST['order_album']);
 		$config->set('order_picture',$_POST['order_picture']);
-		$config->set('mail',$_POST['mail']);
 		$config->update();
 	}
 }
