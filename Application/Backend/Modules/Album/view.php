@@ -32,7 +32,7 @@
 			</select>
 			<select name="album">
 				<?php foreach($albums as $element){?>
-					<option value="<?php echo $album->getId(); ?>" <?php if($picture->getAlbum_id() == $element->getId()){ echo 'selected';}?>> <?php echo $element->getName(); ?></option>';
+					<option value="<?php echo $element->getId(); ?>" <?php if($picture->getAlbum_id() == $element->getId()){ echo 'selected';}?>> <?php echo $element->getName(); ?></option>';
 				<?php }?>
 			</select>
 		</div>
