@@ -27,7 +27,7 @@ class ProfilControleur extends \Library\Controleur{
 
 		if(isset($_POST['mdp']) && isset($_POST['mdpv']) && !empty($_POST['mdp']) && !empty($_POST['mdpv'])){
 			if($_POST['mdp'] == $_POST['mdpv']){
-				$this->_user->setPassword($_POST['mdp']);
+				$this->_user->setPassword(sha1($_POST['mdp']));
 				$this->_app->getPage()->setVars('txt', 'Votre profil a été mis à jour');
 			}else{
 				$this->_app->getPage()->setVars('txt', 'Les mots de passe ne coresspondent pas');
