@@ -4,7 +4,7 @@ namespace Library;
 abstract class Manager implements \Library\Singleton{
 	protected $_db;
 
-	protected function __construct($db){
+	private function __construct($db){
 		$this->_db =$db;
 	}
 
