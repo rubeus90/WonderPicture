@@ -9,13 +9,9 @@ abstract class Application{
 		$_user;
 
 	public function __construct(){
-		$host = 'localhost';
-		$db ='wonderpicture';
-		$login = 'root';
-		$pass ='';
 
 		$this->_page = new Page($this);
-		$connexion = new Connexion($host, $db, $login, $pass);	
+		$connexion = new Connexion();	
 		$this->_pdo = $connexion->getPDO();
 		$this->_HTTPResponse = new HTTPResponse($this);
 		$this->_user =  new User();

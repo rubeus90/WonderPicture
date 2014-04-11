@@ -1,5 +1,7 @@
 RewriteEngine On
 
+RewriteRule ^(init)$ init.php [QSA,L]
+
 RewriteRule ^(admin.*)$ backend.php [QSA,L]
 
 RewriteRule ^(Connexion.*)$ connexion.php [QSA,L]
