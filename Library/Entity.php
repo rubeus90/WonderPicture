@@ -16,6 +16,7 @@ abstract class Entity{
 		}
 	}
 
+	//Pour faciliter le debug
 	abstract function __toString();
 
 	//Créé une miniature avec les paramètres

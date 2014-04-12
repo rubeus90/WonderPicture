@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<definitions>
+	<define var="host" value="localhost" />
+	<define var="db" value="wonderpicture" />
+	<define var="login" value="root" />
+	<define var="pass" value="" />
+</definitions>

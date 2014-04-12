@@ -9,12 +9,26 @@ class Connexion{
 		$_pdo;
 
 	public function __construct(){
-		$this->_host = 'localhost';
-		$this->_db = 'wonderpicture';
-		$this->_login = 'root';
-		$this->_pass = '';
-
+		$this->parse();
 		$this->dbConnect();
+	}
+
+	//Parse le fichier de config PDO
+	private function parse(){
+		$vars = array();
+		$xml = new \DOMDocument;
+		$xml->load(__DIR__.'/../Application/Config/pdo.xml');
+
+		$elements = $xml->getElementsByTagName('define');
+
+		foreach ($elements as $element){
+			$vars[$element->getAttribute('var')] = $element->getAttribute('value');
+		}
+
+		$this->_host = $vars['host'];
+		$this->_db = $vars['db'];
+		$this->_login = $vars['login'];
+		$this->_pass = $vars['pass'];
 	}
 
 	//Permet de se connecter à la base de donnée
