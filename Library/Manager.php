@@ -4,6 +4,7 @@ namespace Library;
 abstract class Manager implements \Library\Singleton{
 	protected $_db;
 
+	//Constructeur privé
 	private function __construct($db){
 		$this->_db =$db;
 	}
@@ -12,6 +13,7 @@ abstract class Manager implements \Library\Singleton{
 		$this->_db =$db;
 	}
 
+	//Méthode getInstance -> Singleton
 	public static function getInstance($pdo){
 		if (!isset(static::$instance)){
 			static::$instance = new static($pdo);

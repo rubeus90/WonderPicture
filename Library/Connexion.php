@@ -17,6 +17,7 @@ class Connexion{
 		$this->dbConnect();
 	}
 
+	//Permet de se connecter à la base de donnée
 	private function dbConnect(){
 
 		try{

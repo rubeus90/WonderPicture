@@ -24,11 +24,11 @@ class UserControleur extends \Library\Controleur {
 
 	private function accept(){
 		$mail = $this->_app->getMail();
-		$subject = "Compte PicShow";
+		$subject = "Compte WonderPicture";
 		$msg = "Nous avons le plaisir de vous anoncer que votre compte a correctement été enregistré. Vous pouvez maintenant accéder à un contenu exclusif.";
 		$user = $this->_userManager->get($_POST['id']);
 
-		//$mail->notify($user,$subject,$msg);
+		$mail->notify($user,$subject,$msg);
 
 		$user->setStatut(1);
 		$this->_userManager->update($user);
@@ -37,11 +37,11 @@ class UserControleur extends \Library\Controleur {
 	private function banish(){
 		//On envoi une notification à l'utilisateur
 		$mail = $this->_app->getMail();
-		$subject = "Bannissement PicShow";
-		$msg = "Nous avons le regret de vous anoncer que votre compte a été banni de PicShow. Merci de votre compréhension.";
+		$subject = "Bannissement WonderPicture";
+		$msg = "Nous avons le regret de vous anoncer que votre compte a été banni de WonderPicture. Merci de votre compréhension.";
 		$user = $this->_userManager->get($_POST['id']);
 
-		//$mail->notify($user,$subject,$msg);
+		$mail->notify($user,$subject,$msg);
 
 		$user = $this->_userManager->delete($_POST['id']);
 	}

@@ -19,10 +19,10 @@ class GallerieControleur extends \Library\Controleur{
 
 		//Si l'album n'est pas public et que le visiteur n'est pas connecté
 		if(!$album->isPublic() && !$this->_app->getUser()->isConnected()){
-			$this->_app->getHTTPResponse()->redirect("/");	
+			$this->_app->getHTTPResponse()->error();
 		}
 
-		//On récupère toutes les images de l'album
+		//On récupère toutes les images de l'album correspondant au statut
 		$pictures =  ( $this->_app->getUser()->isConnected()) ? $this->getManagerof('Picture')->getAlbum($album->getId(), $this->getOrderPicture()) : $this->getManagerof('Picture')->getAlbumPublic($album->getId(), $this->getOrderPicture());	
 		
 		//On passe le tout à la vue

@@ -6,6 +6,7 @@ class Page extends ApplicationComponent{
 		$_vars =array();
 
 
+	//Ajouter des paramètres à la vue
 	public function setVars($var, $value){
 		if( empty($var)  && empty($value) && is_string($var)){
 			throw new \RuntimeException('Bug de valeur');
@@ -13,12 +14,14 @@ class Page extends ApplicationComponent{
 		$this->_vars[$var] = $value;
 	}
 
+	//Définir la vue du controleur
 	public function setView($view){
 		if (is_string($view) && !empty($view) && file_exists($view)){
 			$this->_view = $view;
 		}
 	}
 
+	//Construction de la page
 	public function getPage(){
 		if (file_exists($this->_view)){
 			

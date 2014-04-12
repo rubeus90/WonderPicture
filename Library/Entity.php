@@ -7,6 +7,7 @@ abstract class Entity{
 			$this->hydrate($donnee);
 	}
 
+	//Méthode d'hydratation
 	private function hydrate(array $donnee){
 		foreach($donnee as $key => $value){
 			$method = 'set'.ucfirst($key);
@@ -17,6 +18,7 @@ abstract class Entity{
 
 	abstract function __toString();
 
+	//Créé une miniature avec les paramètres
 	public function createThumb($width, $height,$type, $width_thumb, $quality, $dest, $arriv){		
 
 		$thumb = imagecreatetruecolor($width_thumb, $width_thumb);

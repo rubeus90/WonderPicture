@@ -23,10 +23,10 @@ class ConnexionControleur extends \Library\Controleur{
 						}else{ //Membre
 							$this->_app->getHTTPResponse()->redirect("/");
 						}			
-					}else{
+					}else{ //Cas inscription non valide ou mot de passe mauvais
 						$this->_app->getPage()->setVars('txt', "Erreur dans les identifiants");
 					}
-				}else{
+				}else{ //Utilisateur inexistant
 					$this->_app->getPage()->setVars('txt', "Erreur dans les identifiants");
 				}
 			}else{

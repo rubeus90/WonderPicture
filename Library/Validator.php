@@ -17,7 +17,7 @@ trait Validator{
 	}
 
 	function isValidMail($mail){
-		$regex = "#^[a-z0-9_-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#";
+		$regex = "#^[a-z0-9_.-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#";
 		return (is_string($mail) && !empty($mail) && preg_match($regex,$mail)) ? true : false;
 	}
 

@@ -82,6 +82,8 @@ class PictureControleur extends \Library\Controleur {
 	}
 
 	private function addComment(){
+
+		//COMENTAIRE
 		if(isset($_POST['id']) && isset($_POST['comment']) && $this->exist($_POST['id']) && ($this->exist($_POST['comment']))){
 			$user_id = $this->_app->getUser()->get('user')->getId();
 			$picture_id = $_POST['id'];
@@ -99,6 +101,7 @@ class PictureControleur extends \Library\Controleur {
 
 		}
 
+		//NOTATION
 		if(isset($_POST['star']) && $_POST['star'] < 6 && $_POST['star'] > 0){
 			if(($note =$this->_noteManager->get($this->_picture->getId(),$this->_app->getUser()->get('user')->getId())) !== false){
 				$note->setNote($_POST['star']);

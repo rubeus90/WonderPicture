@@ -30,7 +30,6 @@ class RegisterControleur extends \Library\Controleur{
 					'statut' => 0
 					));
 				$this->getManagerof("User")->add($user);
-				//$this->_app->getHTTPResponse()->redirect("/");
 				$txt ='Votre enregistrement a bien été pris en compte. Vous recevrez bientôt un mail vous confirmant l\'acccès aux photos privée <a href="/">Retour accueil</a>';
 			}
 			$this->_app->getPage()->setVars('txt', $txt);

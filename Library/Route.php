@@ -15,10 +15,10 @@ class Route{
 
 	public function match($url){
 
-		//Aller lire la doc de preg_match, c'est trop long à expliquer. En gros c'est de la recherche de motif avec un peu de grammaire
+		//Recherche de la route
 		if(preg_match('`^'.$this->_url.'$`', $url, $matches)){
 
-			//Si correspondance, on split sur le / pour ne garder que le string
+			//Si correspondance, on split sur le / pour ne garder que les strings
 			$this->_matches = explode("/",$matches[0]);
 			return true;
 			
