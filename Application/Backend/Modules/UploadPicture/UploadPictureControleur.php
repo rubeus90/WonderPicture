@@ -87,6 +87,12 @@ class UploadPictureControleur extends \Library\Controleur {
 
 		$size = getimagesize($url);
 
+		if(!isset($_POST['visibilite'])){
+			$statut = 1;
+		}else{
+			$statut = $_POST['visibilite'];
+		}
+
 		return $picture = new Picture(array(
 		  'id' => '0',
 		  'name' => $this->toString($name),
@@ -98,7 +104,7 @@ class UploadPictureControleur extends \Library\Controleur {
 		  'width' =>  $size[0],
 		  'height' => $size[1],
 		  'date_import' => $date,
-		  'public' => $_POST['visibilite'],
+		  'public' => $statut,
 		  'album_id' => $_POST['album']
 		));
 	}

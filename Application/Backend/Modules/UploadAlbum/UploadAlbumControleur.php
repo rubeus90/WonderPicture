@@ -75,12 +75,18 @@ class UploadAlbumControleur extends \Library\Controleur {
 		$this->_width = $size[0];
 		$this->_height = $size[1];
 
+		if(!isset($_POST['visibilite'])){
+			$statut = 1;
+		}else{
+			$statut = $_POST['visibilite'];
+		}
+
 		return $album = new Album(array(
 			'id'=>'0',
 			'name' => $this->toString($_POST['name']),
 			'description' => $this->toString($_POST['description']),
 			'date_create' => $date,
-			'public' => $_POST['visibilite'],
+			'public' => $statut,
 			'thumb' => $thumb
 			));
 	}
